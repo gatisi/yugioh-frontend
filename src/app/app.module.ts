@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ArticlesModule} from './modules/articles/articles.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {UsersModule} from './modules/users/users.module';
+import {StockItemsModule} from './modules/stock-items/stock-items.module';
+import {CardStorageModule} from './modules/card-storage/card-storage.module';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     ArticlesModule,
-    BrowserAnimationsModule,
+    UsersModule,
+    StockItemsModule,
+    CardStorageModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
