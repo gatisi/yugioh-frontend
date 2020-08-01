@@ -14,6 +14,9 @@ import { MatSliderModule } from '@angular/material/slider';
     FormsModule,
     MatInputModule,
     MatSliderModule
+  ],
+  exports: [
+    MatSliderModule
   ]
 })
 export class SharedModule { }

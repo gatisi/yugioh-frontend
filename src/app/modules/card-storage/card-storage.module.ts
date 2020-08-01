@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CardStorageRoutingModule } from './card-storage-routing.module';
-import { CardStorageComponent } from './card-storage/card-storage.component';
-import { CreateCardStorageComponent } from './create-card-storage/create-card-storage.component';
-import { ListCardStorageComponent } from './components/list-card-storage/list-card-storage.component';
-import { ListCardStoragesComponent } from './components/list-card-storages/list-card-storages.component';
-import { CreateCardStoragesComponent } from './components/create-card-storages/create-card-storages.component';
+import {CardStorageRoutingModule} from './card-storage-routing.module';
+
+import {ListCardStoragesComponent} from './components/list-card-storages/list-card-storages.component';
+import {CreateCardStorageComponent} from "./components/create-card-storage/create-card-storage.component";
 
 
 @NgModule({
@@ -16,4 +14,5 @@ import { CreateCardStoragesComponent } from './components/create-card-storages/c
     CardStorageRoutingModule
   ]
 })
-export class CardStorageModule { }
+export class CardStorageModule {
+}
