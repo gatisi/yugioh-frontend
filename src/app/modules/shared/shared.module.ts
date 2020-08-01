@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -13,10 +14,13 @@ import { MatSliderModule } from '@angular/material/slider';
     CommonModule,
     FormsModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule
+
   ],
   exports: [
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }
