@@ -10,7 +10,7 @@ import { CreateCardStoragesComponent } from './components/create-card-storages/c
 
 
 @NgModule({
-  declarations: [CardStorageComponent, CreateCardStorageComponent, ListCardStorageComponent, ListCardStoragesComponent, CreateCardStoragesComponent],
+  declarations: [ CreateCardStorageComponent, ListCardStoragesComponent],
   imports: [
     CommonModule,
     CardStorageRoutingModule
