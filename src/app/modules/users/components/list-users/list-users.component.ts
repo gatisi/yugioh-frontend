@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SecureHttpClientService} from '../../services/secure-http-client.service';
+import {UsersService} from '../../services/users.service';
 
 @Component({
   selector: 'app-list-users',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private usersService: UsersService) {
+  }
 
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser() {
+    this.usersService.getUsers().subscribe(
+      res => console.log(res)
+    );
   }
 
 }

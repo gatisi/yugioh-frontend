@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {UsersService} from '../../services/users.service';
 
 @Component({
   selector: 'app-create-user',
@@ -15,7 +16,9 @@ export class CreateUserComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private httpClient: HttpClient) {
+  constructor(
+    private httpClient: HttpClient,
+    private usersService: UsersService) {
   }
 
   ngOnInit(): void {
@@ -26,5 +29,7 @@ export class CreateUserComponent implements OnInit {
       'http://localhost:8080/user/register', this.registrationForm.getRawValue()
     ).subscribe();
   }
+
+
 
 }
