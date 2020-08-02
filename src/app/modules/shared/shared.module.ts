@@ -4,6 +4,9 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {AuthService} from './auth.service';
+import {SecureHttpClientService} from '../users/services/secure-http-client.service';
 
 
 
@@ -15,12 +18,18 @@ import {MatMenuModule} from '@angular/material/menu';
     FormsModule,
     MatInputModule,
     MatSliderModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
   ],
   exports: [
     MatSliderModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule
+  ],
+  providers: [
+    AuthService,
+    SecureHttpClientService,
   ]
 })
 export class SharedModule { }
