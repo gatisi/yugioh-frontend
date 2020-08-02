@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-create-user',
@@ -6,11 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  value = 'Clear me';
+  registrationForm = new FormGroup({
+    email: new FormControl(''),
+    name: new FormControl(''),
+    surname: new FormControl(''),
+    password: new FormControl(''),
+  });
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   ngOnInit(): void {
+  }
+
+  saveUser() {
+    this.httpClient.post(
+      'http://localhost:8080/user/register', this.registrationForm.getRawValue()
+    ).subscribe();
   }
 
 }

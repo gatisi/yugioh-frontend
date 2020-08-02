@@ -9,6 +9,9 @@ import {UsersModule} from './modules/users/users.module';
 import {StockItemsModule} from './modules/stock-items/stock-items.module';
 import {CardStorageModule} from './modules/card-storage/card-storage.module';
 import {SharedModule} from "./modules/shared/shared.module";
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import {SharedModule} from "./modules/shared/shared.module";
     UsersModule,
     StockItemsModule,
     CardStorageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+
 
   ],
   providers: [],
