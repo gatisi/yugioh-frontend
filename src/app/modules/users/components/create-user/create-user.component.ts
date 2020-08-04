@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
 import {UsersService} from '../../services/users.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../shared/auth.service';
 
 @Component({
   selector: 'app-create-user',
@@ -20,7 +20,8 @@ export class CreateUserComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private router: Router,
-    ) {
+    private authenticationService: AuthService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -28,10 +29,15 @@ export class CreateUserComponent implements OnInit {
 
   saveUser() {
     this.usersService.saveUser(this.registrationForm.getRawValue()).subscribe(
-      res => this.router.navigateByUrl('/users/list')
+      res => {
+        if (this.authenticationService.isLoggedIn()) {
+          this.router.navigateByUrl('/users/list');
+        } else {
+          this.router.navigateByUrl('/users/login');
+        }
+      }
     );
   }
-
 
 
 }

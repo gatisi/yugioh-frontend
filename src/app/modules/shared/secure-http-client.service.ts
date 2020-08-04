@@ -30,11 +30,13 @@ export class SecureHttpClientService {
   }
 
   private createAuthHeader() {
-    const header = new HttpHeaders(
-      {Authorization: 'Bearer ' + this.authService.getToken()}
-    );
-    return {
-      headers: header
-    };
+    if (this.authService.isLoggedIn()) {
+      const header = new HttpHeaders(
+        {Authorization: 'Bearer ' + this.authService.getToken()}
+      );
+      return {
+        headers: header
+      };
+    }
   }
 }
