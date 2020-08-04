@@ -5,12 +5,16 @@ import { UsersRoutingModule } from './users-routing.module';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import {SharedModule} from '../shared/shared.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import { UpdateUserDialogComponent } from './components/update-user-dialog/update-user-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
-  declarations: [CreateUserComponent, ListUsersComponent],
+  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent],
   exports: [
     CreateUserComponent
   ],
@@ -18,8 +22,6 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     SharedModule,
     UsersRoutingModule,
-    ReactiveFormsModule,
-    MatButtonModule
 
   ]
 })

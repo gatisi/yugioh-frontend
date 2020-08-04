@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {UsersService} from '../../services/users.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -17,17 +18,18 @@ export class CreateUserComponent implements OnInit {
   });
 
   constructor(
-    private httpClient: HttpClient,
-    private usersService: UsersService) {
+    private usersService: UsersService,
+    private router: Router,
+    ) {
   }
 
   ngOnInit(): void {
   }
 
   saveUser() {
-    this.httpClient.post(
-      'http://localhost:8080/user/register', this.registrationForm.getRawValue()
-    ).subscribe();
+    this.usersService.saveUser(this.registrationForm.getRawValue()).subscribe(
+      res => this.router.navigateByUrl('/users/list')
+    );
   }
 
 
