@@ -21,7 +21,10 @@ export class AppComponent {
 
   navigateToUsers() {
     this.router.navigateByUrl('/users');
+  }
 
+  navigateToTests() {
+    this.router.navigateByUrl('/tests');
   }
 }
 
