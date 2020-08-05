@@ -11,7 +11,7 @@ import {Article} from "../../entities/article";
 export class ListArticlesComponent implements OnInit {
 
   public articles = [];
-  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'update', 'delete'];
+  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'delete'];
 
 
   constructor(
@@ -27,6 +27,7 @@ export class ListArticlesComponent implements OnInit {
   getArticles() {
     this.articlesService.getAllArticles().subscribe(
       res => {
+        console.log(res);
         this.articles = res;
       }
     );
