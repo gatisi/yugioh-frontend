@@ -1,2 +1,44 @@
 <h2>create-article works!</h2>
+<form [formGroup]="articleForm">
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Booster set</mat-label>
+    <input type="text" formControlName="boosterSet" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Card name</mat-label>
+    <input type="text" formControlName="cardName" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Edition</mat-label>
+    <mat-select formControlName="edition">
+      <mat-option *ngFor="let type of edition" [value]="type">
+        {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Rarity</mat-label>
+    <mat-select formControlName="rarity">
+      <mat-option *ngFor="let type of rarity" [value]="type">
+        {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Card Type</mat-label>
+    <mat-select formControlName="cardType">
+      <mat-option *ngFor="let type of cardType" [value]="type">
+        {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="saveArticle()">Save</button>
+</div>
 
+</form>
