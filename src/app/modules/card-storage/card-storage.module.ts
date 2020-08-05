@@ -7,6 +7,7 @@ import {ListCardStoragesComponent} from './components/list-card-storages/list-ca
 import {CreateCardStorageComponent} from "./components/create-card-storage/create-card-storage.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,8 +15,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
   imports: [
     CommonModule,
     CardStorageRoutingModule,
-    ReactiveFormsModule,
-    MatFormFieldModule
+    SharedModule,
   ]
 })
 export class CardStorageModule {

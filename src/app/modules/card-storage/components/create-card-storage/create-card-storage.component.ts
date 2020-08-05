@@ -28,7 +28,7 @@ export class CreateCardStorageComponent implements OnInit {
     this.cardStorageService.saveCardStorage(this.storageCreationForm.getRawValue()).subscribe(
       res => {
         if (this.authenticationService.isLoggedIn()) {
-          this.router.navigateByUrl('/cardstorage/list');
+          this.router.navigateByUrl('/cardStorage/list');
         } else {
           this.router.navigateByUrl('/users/login');
         }
