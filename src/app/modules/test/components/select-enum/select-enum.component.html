@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+  <mat-label>Card Type</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let type of cardTypes" [value]="type">
+      {{type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
