@@ -13,7 +13,6 @@ import {MatSelectModule} from '@angular/material/select';
     CommonModule,
     TestRoutingModule,
     SharedModule,
-    MatSelectModule
   ]
 })
 export class TestModule { }
