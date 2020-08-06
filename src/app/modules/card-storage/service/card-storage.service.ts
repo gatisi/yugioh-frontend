@@ -20,7 +20,6 @@ export class CardStorageService {
     return this.secureHttpClientService.get('http://localhost:8080/cardstorage/all');
   }
 }
-// Tev frontā, cardstorage serviss pieprasījumu taisa uz locahost nevis localhost :grin:
 
 
 
