@@ -17,9 +17,10 @@ export class CardStorageService {
   }
 
   getAllCardStorages(): Observable<any> {
-    return this.secureHttpClientService.get('http://locahost:8080/cardstorage/all');
+    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/all');
   }
 }
+// Tev frontā, cardstorage serviss pieprasījumu taisa uz locahost nevis localhost :grin:
 
 
 

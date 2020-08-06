@@ -11,7 +11,7 @@ import {Article} from "../../entities/article";
 export class ListArticlesComponent implements OnInit {
 
   public articles = [];
-  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'update', 'delete'];
+  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'delete'];
 
 
   constructor(
