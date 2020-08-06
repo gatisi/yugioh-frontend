@@ -14,6 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './modules/users/components/login/login.component';
 import {MatButtonModule} from '@angular/material/button';
+import {TestModule} from './modules/test/test.module';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatButtonModule
+    TestModule,
 
 
   ],

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {CardStorageService} from '../../service/card-storage.service';
+import {Router} from '@angular/router';
+import {AuthService} from '../../../shared/auth.service';
 
 @Component({
   selector: 'app-create-card-storage',
@@ -6,10 +10,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-card-storage.component.css']
 })
 export class CreateCardStorageComponent implements OnInit {
+  storageCreationForm = new FormGroup({
+    storageName: new FormControl(''),
+  });
 
-  constructor() { }
+  constructor(
+    private cardStorageService: CardStorageService,
+    private router: Router,
+    private authenticationService: AuthService,
+  ) {
+  }
 
   ngOnInit(): void {
+  }
+
+  saveCardStorage() {
+    this.cardStorageService.saveCardStorage(this.storageCreationForm.getRawValue()).subscribe(
+      res => {
+        if (this.authenticationService.isLoggedIn()) {
+          this.router.navigateByUrl('/cardStorage/list');
+        } else {
+          this.router.navigateByUrl('/users/login');
+        }
+      }
+    );
   }
 
 }

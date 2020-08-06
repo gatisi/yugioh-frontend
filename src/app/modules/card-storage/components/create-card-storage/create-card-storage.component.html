@@ -1,1 +1,15 @@
-<p>create-card-storage works!</p>
+<form [formGroup]="storageCreationForm">
+
+  <H1>Create new Yugioh card storage!</H1>
+
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Storage name</mat-label>
+      <input type="text" formControlName="storageName" matInput>
+    </mat-form-field>
+    <br>
+
+    <button mat-button (click)="saveCardStorage()">Save</button>
+  </div>
+
+</form>
