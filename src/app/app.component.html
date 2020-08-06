@@ -1,15 +1,15 @@
-<h1>yugioh application</h1>
+<!--<h1>yugioh application</h1>-->
 <!--<div>-->
 <!--  <button mat-menu-item>Item 1</button>-->
 <!--  <a routerLink="/">Home</a>-->
 <!--  <a routerLink="/users">Users</a>-->
 <!--</div>-->
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
 
 
 <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="navigateToHome()">Home</button>
-  <button mat-menu-ite (click)="navigateToUsers()"> Users</button>
+  <button mat-menu-item (click)="navigateToUsers()">Users</button>
 </mat-menu>
