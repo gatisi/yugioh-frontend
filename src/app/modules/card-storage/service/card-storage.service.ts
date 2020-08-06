@@ -15,6 +15,10 @@ export class CardStorageService {
   saveCardStorage(cardStorage: CardStorage): Observable<any> {
     return this.secureHttpClientService.post('http://localhost:8080/cardstorage/create', cardStorage);
   }
+
+  getAllCardStorages(): Observable<any> {
+    return this.secureHttpClientService.get('http://locahost:8080/cardstorage/all');
+  }
 }
 
 
