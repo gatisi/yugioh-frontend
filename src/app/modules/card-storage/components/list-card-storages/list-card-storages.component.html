@@ -1,1 +1,21 @@
-<p>list-card-storages works!</p>
+
+<mat-toolbar>
+  <span>List of all Card Storages </span>
+  <span class="fill-space"></span>
+  <button mat-button routerLink="/cardStorage/create">Add Card Storage</button>
+</mat-toolbar>
+
+<table [dataSource]="cardStorage" class="mat-elevation-z8" mat-table>
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef mat-header-cell> ID</th>
+    <td *matCellDef="let cardStorage" mat-cell> {{cardStorage.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="storageName">
+    <th *matHeaderCellDef mat-header-cell> Storage name</th>
+    <td *matCellDef="let cardStorage" mat-cell> {{cardStorage.storageName}} </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
