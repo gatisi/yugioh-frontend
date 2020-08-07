@@ -1,11 +1,90 @@
 <p>create-stock-item works!</p>
+
 <form [formGroup]="stockItemCreationForm">
   <div class="example-container">
+
+
     <mat-form-field appearance="fill">
-      <mat-label>Card condition</mat-label>
-      <input type="text" formControlName="cardCondition" matInput>
+      <input type="text"
+             placeholder="Pick one"
+             aria-label="Articles"
+             matInput
+             [formControl]="articlesControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card storage</mat-label>
+      <mat-select formControlName="cardStorage">
+        <mat-option *ngFor="let type of cardStorage" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <br>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card value</mat-label>
+      <input type="text" formControlName="cardValue" matInput>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card value when sold</mat-label>
+      <input type="text" formControlName="cardValueWhenSold" matInput>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Is it posted in the shop?</mat-label>
+      <input type="text" formControlName="inShop" matInput>
+    </mat-form-field>
+    <br>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card rarity</mat-label>
+      <mat-select formControlName="rarity">
+        <mat-option *ngFor="let type of rarity" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card type</mat-label>
+      <mat-select formControlName="cardType">
+        <mat-option *ngFor="let type of cardType" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Card condition</mat-label>
+      <mat-select formControlName="cardCondition">
+        <mat-option *ngFor="let type of cardCondition" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Add your comments about the condition of the card or anything else</mat-label>
+      <input type="text" formControlName="comments" matInput>
+    </mat-form-field>
+    <br>
+
+    <button mat-button (click)="saveStockItem()">Save</button>
+
   </div>
 
 </form>
