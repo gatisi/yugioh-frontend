@@ -6,7 +6,7 @@ import { CreateArticleComponent } from './components/create-article/create-artic
 import { ListArticlesComponent } from './components/list-articles/list-articles.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {SharedModule} from "../shared/shared.module";
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({

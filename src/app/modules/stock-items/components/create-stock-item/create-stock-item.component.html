@@ -1,1 +1,11 @@
 <p>create-stock-item works!</p>
+<form [formGroup]="stockItemCreationForm">
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Card condition</mat-label>
+      <input type="text" formControlName="cardCondition" matInput>
+    </mat-form-field>
+    <br>
+  </div>
+
+</form>
