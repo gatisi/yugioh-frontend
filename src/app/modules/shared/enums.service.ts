@@ -25,5 +25,9 @@ export class EnumsService {
     return this.secureHttpClientService.get('http://localhost:8080/enum/rarity');
   }
 
+  getCardStorages() {
+    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/all');
+  }
+
 
 }

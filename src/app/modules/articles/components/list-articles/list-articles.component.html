@@ -51,6 +51,15 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="addCard">
+    <th *matHeaderCellDef mat-header-cell> Add Card</th>
+    <td *matCellDef="let article" mat-cell>
+      <button (click)="addCard(article)" color="accent" mat-raised-button>Add</button>
+    </td>
+  </ng-container>
+
+
+
   <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
   <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 </table>

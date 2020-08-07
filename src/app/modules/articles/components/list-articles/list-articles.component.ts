@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ArticlesService} from "../../services/articles.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Article} from "../../entities/article";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-articles',
@@ -11,12 +12,13 @@ import {Article} from "../../entities/article";
 export class ListArticlesComponent implements OnInit {
 
   public articles = [];
-  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'delete'];
+  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'delete', 'addCard'];
 
 
   constructor(
     private articlesService: ArticlesService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
   ) {
   }
 
@@ -47,4 +49,7 @@ export class ListArticlesComponent implements OnInit {
     );
   }
 
+  addCard(article: Article) {
+    this.router.navigateByUrl('stockitems/create/' + article.id);
+  }
 }
