@@ -6,7 +6,7 @@ import {CreateCardStorageComponent} from './components/create-card-storage/creat
 
 const routes: Routes = [
   {
-    path: 'cardStorage',
+    path: 'cardstorage',
     children: [
       {
         path: 'list',
