@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {UsersModule} from './modules/users/users.module';
 import {StockItemsModule} from './modules/stock-items/stock-items.module';
 import {CardStorageModule} from './modules/card-storage/card-storage.module';
-import {SharedModule} from "./modules/shared/shared.module";
+import {SharedModule} from './modules/shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
@@ -17,10 +17,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {TestModule} from './modules/test/test.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+
 
 
   ],
