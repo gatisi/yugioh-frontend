@@ -13,6 +13,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -33,6 +35,8 @@ import { MatAutocompleteModule} from '@angular/material/autocomplete';
     MatDialogModule,
     MatToolbarModule,
     MatAutocompleteModule,
+    MatDividerModule,
+    MatCardModule,
   ],
   exports: [
     FormsModule,
@@ -49,6 +53,8 @@ import { MatAutocompleteModule} from '@angular/material/autocomplete';
     MatToolbarModule,
     MatSelectModule,
     MatAutocompleteModule,
+    MatDividerModule,
+    MatCardModule,
   ],
   providers: [
     AuthService,
