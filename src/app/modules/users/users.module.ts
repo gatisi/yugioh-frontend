@@ -11,10 +11,12 @@ import {MatTableModule} from '@angular/material/table';
 import { UpdateUserDialogComponent } from './components/update-user-dialog/update-user-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ListRolesComponent } from './components/list-roles/list-roles.component';
+import { CreateRoleComponent } from './components/create-role/create-role.component';
 
 
 @NgModule({
-  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent],
+  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent, ListRolesComponent, CreateRoleComponent],
   exports: [
     CreateUserComponent
   ],
