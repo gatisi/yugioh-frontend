@@ -1,11 +1,79 @@
-<p>create-stock-item works!</p>
+<div *ngIf="article">
+  <mat-form-field appearance="fill">
+    <mat-label>Booster Set</mat-label>
+    <input type="text" matInput [readonly]="true" value="{{article.boosterSet}}">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Card Name</mat-label>
+    <input type="text" matInput [readonly]="true" value="{{article.cardName}}">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Card Type</mat-label>
+    <input type="text" matInput [readonly]="true" value="{{article.cardType}}">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Edition</mat-label>
+    <input type="text" matInput [readonly]="true" value="{{article.edition}}">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Rarity</mat-label>
+    <input type="text" matInput [readonly]="true" value="{{article.rarity}}">
+  </mat-form-field>
+</div>
+
 <form [formGroup]="stockItemCreationForm">
   <div class="example-container">
+
+
     <mat-form-field appearance="fill">
-      <mat-label>Card condition</mat-label>
-      <input type="text" formControlName="cardCondition" matInput>
+      <mat-label>Card value</mat-label>
+      <input type="text" formControlName="cardValue" matInput>
     </mat-form-field>
     <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card value when sold</mat-label>
+      <input type="text" formControlName="cardValueWhenSold" matInput>
+    </mat-form-field>
+    <br>
+
+<!--    <mat-form-field appearance="fill">-->
+<!--      <mat-label>Is it posted in the shop?</mat-label>-->
+<!--      <input type="text" formControlName="inShop" matInput>-->
+<!--    </mat-form-field>-->
+<!--    <br>-->
+
+    <mat-checkbox class="example-margin" formControlName="inShop">Is it posted in the shop?</mat-checkbox>
+
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Card condition</mat-label>
+      <mat-select formControlName="cardCondition">
+        <mat-option *ngFor="let cardCondition of cardConditionArr" [value]="cardCondition">
+          {{cardCondition}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Card Storage</mat-label>
+      <mat-select formControlName="cardStorage">
+        <mat-option *ngFor="let cardStorage of cardStorageArr" [value]="cardStorage">
+          {{cardStorage.storageName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Add your comments about the condition of the card or anything else</mat-label>
+      <input type="text" formControlName="comments" matInput>
+    </mat-form-field>
+    <br>
+
+    <button mat-button (click)="saveStockItem()">Save</button>
+
   </div>
 
 </form>
