@@ -14,6 +14,6 @@ export class StockItemsService {
 
   saveStockItem(stockItem: StockItem, article: Article): Observable<any> {
     stockItem.article = article;
-    return this.secureHttpClientService.post('http://localhost:8080/stockitem/save', stockItem);
+    return this.secureHttpClientService.post('http://localhost:8080/stockitem/create', stockItem);
   }
 }
