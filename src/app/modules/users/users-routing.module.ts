@@ -5,6 +5,7 @@ import {CreateUserComponent} from './components/create-user/create-user.componen
 import {LoginComponent} from './components/login/login.component';
 import {ListRolesComponent} from './components/list-roles/list-roles.component';
 import {CreateRoleComponent} from './components/create-role/create-role.component';
+import {EditInfoComponent} from './components/edit-info/edit-info.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'edit',
+        component: EditInfoComponent
       },
       {
         path: 'roles',

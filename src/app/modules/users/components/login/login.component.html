@@ -10,6 +10,9 @@
       <input type="password" formControlName="password" matInput>
     </mat-form-field>
     <br>
-    <button mat-button (click)="login()">Login</button>
+    <button [disabled]="!loginForm.valid" mat-stroked-button color="primary" (click)="login()">Login</button>
+    <button mat-stroked-button color="accent" (click)="goToRegister()">
+      Register
+    </button>
   </div>
 </form>

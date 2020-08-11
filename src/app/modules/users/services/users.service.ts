@@ -42,4 +42,8 @@ export class UsersService {
   deleteRole(role: Role): Observable<any> {
     return this.secureHttpClientService.post('http://localhost:8080/users/roles/delete', role);
   }
+
+  updateThisUser(user: User) {
+    return this.secureHttpClientService.post('http://localhost:8080/user/updatethis', user);
+  }
 }
