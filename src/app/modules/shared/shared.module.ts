@@ -15,11 +15,14 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import {HttpErrorInterceptor} from './http-error.interceptor';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [WelcomeComponent],
   imports: [
     CommonModule,
     FormsModule,
