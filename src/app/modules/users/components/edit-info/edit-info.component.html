@@ -1,0 +1,23 @@
+<div *ngIf="user" class="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input type="text" [(ngModel)]="user.name" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Surname</mat-label>
+    <input type="text" [(ngModel)]="user.surname" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="text" [(ngModel)]="user.email" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>New Password</mat-label>
+    <input type="password" [(ngModel)]="user.password" matInput>
+  </mat-form-field>
+  <br>
+  <button mat-button (click)="saveUser()">Update</button>
+</div>

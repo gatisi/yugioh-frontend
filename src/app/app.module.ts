@@ -8,14 +8,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {UsersModule} from './modules/users/users.module';
 import {StockItemsModule} from './modules/stock-items/stock-items.module';
 import {CardStorageModule} from './modules/card-storage/card-storage.module';
-import {SharedModule} from "./modules/shared/shared.module";
+import {SharedModule} from './modules/shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './modules/users/components/login/login.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './modules/users/components/login/login.component';
 import {MatButtonModule} from '@angular/material/button';
 import {TestModule} from './modules/test/test.module';
 import {UpdateArticleDialogComponent} from "./modules/articles/components/update-article-dialog/update-article-dialog.component";
+
+import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
 
 
 
@@ -23,6 +27,8 @@ import {UpdateArticleDialogComponent} from "./modules/articles/components/update
   declarations: [
     AppComponent,
     LoginComponent,
+
+
 
   ],
   imports: [
@@ -40,7 +46,9 @@ import {UpdateArticleDialogComponent} from "./modules/articles/components/update
 
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

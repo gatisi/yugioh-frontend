@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ListUsersComponent} from './components/list-users/list-users.component';
 import {CreateUserComponent} from './components/create-user/create-user.component';
 import {LoginComponent} from './components/login/login.component';
-
+import {ListRolesComponent} from './components/list-roles/list-roles.component';
+import {CreateRoleComponent} from './components/create-role/create-role.component';
+import {EditInfoComponent} from './components/edit-info/edit-info.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,23 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
       },
-
+      {
+        path: 'edit',
+        component: EditInfoComponent
+      },
+      {
+        path: 'roles',
+        children: [
+          {
+            path: 'list',
+            component: ListRolesComponent
+          },
+          {
+            path: 'create',
+            component: CreateRoleComponent
+          },
+        ]
+      }
     ]
   },
 ];
@@ -34,4 +52,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UsersRoutingModule { }
+export class UsersRoutingModule {
+}

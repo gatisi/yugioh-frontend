@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../../../shared/auth.service';
 import {AuthenticationResult} from '../../entities/AuthenticationResult';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,14 @@ import {AuthenticationResult} from '../../entities/AuthenticationResult';
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) {
   }
 
@@ -27,9 +29,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.httpClient.post<AuthenticationResult>('http://localhost:8080/login', this.loginForm.getRawValue()).subscribe(
-      authenticationResult => this.authService.saveAuthentication(
-        authenticationResult
-      )
+      authenticationResult => {
+        this.authService.saveAuthentication(
+          authenticationResult
+        );
+        this.router.navigateByUrl('/').then();
+      }
     );
+  }
+
+  goToRegister() {
+    this.router.navigateByUrl('/users/create').then();
   }
 }
