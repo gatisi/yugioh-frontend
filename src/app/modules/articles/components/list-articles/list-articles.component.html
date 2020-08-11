@@ -1,10 +1,10 @@
 <p>list-articles works!</p>
-<!--<mat-toolbar>
+<mat-toolbar>
   <span>Article List</span>
   <span class="fill-space"></span>
   <button mat-button routerLink="/articles/create">Add Article</button>
 
-</mat-toolbar>-->
+</mat-toolbar>
 
 <table [dataSource]="articles" class="mat-elevation-z8" mat-table>
   <ng-container matColumnDef="id">
@@ -37,12 +37,12 @@
     <td *matCellDef="let article" mat-cell> {{article.cardType}} </td>
   </ng-container>
 
-  <!--<ng-container matColumnDef="update">
+  <ng-container matColumnDef="update">
     <th *matHeaderCellDef mat-header-cell> Update Article</th>
     <td *matCellDef="let article" mat-cell>
       <button (click)="editArticle(article)" mat-raised-button>Update</button>
     </td>
-  </ng-container>-->
+  </ng-container>
 
   <ng-container matColumnDef="delete">
     <th *matHeaderCellDef mat-header-cell> Delete Article</th>

@@ -37,6 +37,7 @@ import {MatCardModule} from '@angular/material/card';
     MatAutocompleteModule,
     MatDividerModule,
     MatCardModule,
+
   ],
   exports: [
     FormsModule,

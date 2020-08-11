@@ -3,6 +3,8 @@ import {ArticlesService} from "../../services/articles.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Article} from "../../entities/article";
 import {Router} from '@angular/router';
+import {UpdateArticleDialogComponent} from "../update-article-dialog/update-article-dialog.component";
+
 
 @Component({
   selector: 'app-list-articles',
@@ -12,7 +14,7 @@ import {Router} from '@angular/router';
 export class ListArticlesComponent implements OnInit {
 
   public articles = [];
-  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'delete', 'addCard'];
+  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'update', 'delete', 'addCard'];
 
 
   constructor(
@@ -35,14 +37,14 @@ export class ListArticlesComponent implements OnInit {
     );
   }
 
-  // editArticle(article: Article): void {
-  //   const dialogRef = this.dialog.open(UpdateArticleDialogComponent, {
-  //     width: '600px',
-  //     data: article
-  //   });
+   editArticle(article: Article): void {
+    const dialogRef = this.dialog.open(UpdateArticleDialogComponent, {
+     width: '600px',
+     data: article
+     });
 
-  //   dialogRef.afterClosed().subscribe(result => this.ngOnInit());
-  // }
+    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+  }
 
   deleteArticle(article: Article): void {
     this.articlesService.deleteArticle(article).subscribe(
