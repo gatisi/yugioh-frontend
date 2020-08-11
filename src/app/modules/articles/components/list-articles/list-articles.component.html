@@ -37,12 +37,12 @@
     <td *matCellDef="let article" mat-cell> {{article.cardType}} </td>
   </ng-container>
 
-  <!--<ng-container matColumnDef="update">
+  <ng-container matColumnDef="update">
     <th *matHeaderCellDef mat-header-cell> Update Article</th>
     <td *matCellDef="let article" mat-cell>
       <button (click)="editArticle(article)" mat-raised-button>Update</button>
     </td>
-  </ng-container>-->
+  </ng-container>
 
   <ng-container matColumnDef="delete">
     <th *matHeaderCellDef mat-header-cell> Delete Article</th>

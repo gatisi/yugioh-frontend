@@ -40,6 +40,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     MatAutocompleteModule,
     MatDividerModule,
     MatCardModule,
+
   ],
   exports: [
     FormsModule,

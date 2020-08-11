@@ -7,10 +7,12 @@ import { ListArticlesComponent } from './components/list-articles/list-articles.
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {SharedModule} from '../shared/shared.module';
+import { UpdateArticleDialogComponent } from './components/update-article-dialog/update-article-dialog.component';
+import {CreateUserComponent} from "../users/components/create-user/create-user.component";
 
 
 @NgModule({
-  declarations: [CreateArticleComponent, ListArticlesComponent],
+  declarations: [CreateArticleComponent, ListArticlesComponent, UpdateArticleDialogComponent],
   imports: [
     CommonModule,
     ArticlesRoutingModule,
