@@ -26,5 +26,8 @@ export class AppComponent {
   navigateToTests() {
     this.router.navigateByUrl('/tests');
   }
+  logoutClicked() {
+    this.router.navigateByUrl('/users/logout').then();
+  }
 }
 
