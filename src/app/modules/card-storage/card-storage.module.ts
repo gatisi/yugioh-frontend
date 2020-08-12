@@ -8,14 +8,20 @@ import {CreateCardStorageComponent} from "./components/create-card-storage/creat
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {SharedModule} from '../shared/shared.module';
+import {UpdateCardStorageDialogComponent} from './components/update-card-storage-dialog/update-card-storage-dialog.component';
 
 
 @NgModule({
-  declarations: [ CreateCardStorageComponent, ListCardStoragesComponent],
+  declarations: [CreateCardStorageComponent, ListCardStoragesComponent, UpdateCardStorageDialogComponent],
+  exports: [
+    CreateCardStorageComponent,
+    UpdateCardStorageDialogComponent
+  ],
   imports: [
     CommonModule,
     CardStorageRoutingModule,
     SharedModule,
+
   ]
 })
 export class CardStorageModule {

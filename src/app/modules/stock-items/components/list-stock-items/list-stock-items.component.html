@@ -1,1 +1,67 @@
-<p>list-stock-items works!</p>
+<table [dataSource]="stockItems" class="mat-elevation-z8" mat-table>
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef mat-header-cell> ID</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="card condition">
+    <th *matHeaderCellDef mat-header-cell> Card Condition</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardCondition}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="card value">
+    <th *matHeaderCellDef mat-header-cell> Card Value</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValue}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="card value when sold">
+    <th *matHeaderCellDef mat-header-cell> Card Value When Sold</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValueWhenSold}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="in shop">
+    <th *matHeaderCellDef mat-header-cell> Listed In Shop</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.inShop}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="comments">
+    <th *matHeaderCellDef mat-header-cell> Comments</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.comments}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th *matHeaderCellDef mat-header-cell> ID</th>
+    <td *matCellDef="let article" mat-cell> {{article.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="booster set">
+    <th *matHeaderCellDef mat-header-cell> Booster Set</th>
+    <td *matCellDef="let article" mat-cell> {{article.boosterSet}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="card name">
+    <th *matHeaderCellDef mat-header-cell> Card Name</th>
+    <td *matCellDef="let article" mat-cell> {{article.cardName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edition">
+    <th *matHeaderCellDef mat-header-cell> Edition</th>
+    <td *matCellDef="let article" mat-cell> {{article.edition}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rarity">
+    <th *matHeaderCellDef mat-header-cell> Rarity</th>
+    <td *matCellDef="let article" mat-cell> {{article.rarity}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="card type">
+    <th *matHeaderCellDef mat-header-cell> Card Type</th>
+    <td *matCellDef="let article" mat-cell> {{article.cardType}} </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="displayedColumnsStockItems" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumnsStockItems;" mat-row></tr>
+
+  <tr *matHeaderRowDef="displayedColumnsArticles" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumnsArticles;" mat-row></tr>
+</table>

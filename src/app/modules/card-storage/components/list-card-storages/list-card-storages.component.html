@@ -17,16 +17,16 @@
   </ng-container>
 
   <ng-container matColumnDef="update">
-    <th *matHeaderCellDef mat-header-cell> Update User</th>
-    <td *matCellDef="let user" mat-cell>
-      <button (click)="editCardStorage(user)" mat-raised-button>Update</button>
+    <th *matHeaderCellDef mat-header-cell> Update Storage</th>
+    <td *matCellDef="let cardStorage" mat-cell>
+      <button (click)="editCardStorage(cardStorage)" mat-raised-button>Update</button>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="delete">
-    <th *matHeaderCellDef mat-header-cell> Delete User</th>
-    <td *matCellDef="let user" mat-cell>
-      <button (click)="deleteCardStorage(user)" color="warn" mat-raised-button>Delete</button>
+    <th *matHeaderCellDef mat-header-cell> Delete Storage</th>
+    <td *matCellDef="let cardStorage" mat-cell>
+      <button (click)="deleteCardStorage(cardStorage)" color="warn" mat-raised-button>Delete</button>
     </td>
   </ng-container>
 

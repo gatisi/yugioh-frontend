@@ -16,6 +16,11 @@ const routes: Routes = [
         path: 'create',
         component: CreateCardStorageComponent
       },
+      {
+        path: 'update/:cardStorageId',
+        component: CreateCardStorageComponent
+      },
+
 
     ]
   },

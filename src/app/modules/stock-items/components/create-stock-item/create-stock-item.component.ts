@@ -18,7 +18,7 @@ import {CardStorage} from '../../../card-storage/entities/card-storage';
 })
 export class CreateStockItemComponent implements OnInit {
   article: Article;
-  options: string[] = ['cardValue', 'cardValueWhenSold', 'inShop', 'cardCondition', 'comments',];
+  options: string[] = ['cardValue', 'cardValueWhenSold', 'inShop', 'cardCondition', 'comments'];
   cardConditionArr: [];
   cardStorageArr: CardStorage[];
 
