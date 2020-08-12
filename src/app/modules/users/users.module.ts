@@ -14,10 +14,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { ListRolesComponent } from './components/list-roles/list-roles.component';
 import { CreateRoleComponent } from './components/create-role/create-role.component';
 import { EditInfoComponent } from './components/edit-info/edit-info.component';
+import { UpdateRoleDialogComponent } from './components/update-role-dialog/update-role-dialog.component';
 
 
 @NgModule({
-  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent, ListRolesComponent, CreateRoleComponent, EditInfoComponent],
+  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent, ListRolesComponent, CreateRoleComponent, EditInfoComponent, UpdateRoleDialogComponent],
   exports: [
     CreateUserComponent
   ],
