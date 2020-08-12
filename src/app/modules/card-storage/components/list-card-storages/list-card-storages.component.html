@@ -15,8 +15,8 @@
     <td *matCellDef="let cardStorage" mat-cell> {{cardStorage.id}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="storageName">
-    <th *matHeaderCellDef mat-header-cell> Storage name</th>
+  <ng-container matColumnDef="storage name">
+    <th *matHeaderCellDef mat-header-cell> Storage Name</th>
     <td *matCellDef="let cardStorage" mat-cell> {{cardStorage.storageName}} </td>
   </ng-container>
 
@@ -31,6 +31,13 @@
     <th *matHeaderCellDef mat-header-cell> Delete Storage</th>
     <td *matCellDef="let cardStorage" mat-cell>
       <button (click)="deleteCardStorage(cardStorage)" color="warn" mat-raised-button>Delete</button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="view cards">
+    <th *matHeaderCellDef mat-header-cell> View Cards In This Storage</th>
+    <td *matCellDef="let cardStorage" mat-cell>
+      <button (click)="getStockItemsInStorage(cardStorage)" color="warn" mat-raised-button>View Cards</button>
     </td>
   </ng-container>
 

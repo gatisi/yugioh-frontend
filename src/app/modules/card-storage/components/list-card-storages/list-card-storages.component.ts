@@ -4,6 +4,7 @@ import {Article} from "../../../articles/entities/article";
 import {CardStorage} from "../../entities/card-storage";
 import {UpdateUserDialogComponent} from "../../../users/components/update-user-dialog/update-user-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {StockItemsService} from "../../../stock-items/services/stock-items.service";
 
 @Component({
   selector: 'app-list-card-storages',
@@ -12,16 +13,18 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ListCardStoragesComponent implements OnInit {
   public cardStorage = [];
-  displayedColumns: string[] = ['id', 'storageName', 'update', 'delete'];
+  displayedColumns: string[] = ['id', 'storage name', 'update', 'delete', 'view cards'];
 
   constructor(
     private cardStorageService: CardStorageService,
+    private stockItemsService: StockItemsService,
     private dialog: MatDialog
   ) {
   }
 
   ngOnInit(): void {
     this.getCardStorages();
+    this.getStockItemsInStorage(cardStorage);
   }
 
   getCardStorages() {
@@ -44,6 +47,14 @@ export class ListCardStoragesComponent implements OnInit {
       data: cardStorage
     });
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+  }
+
+  private getStockItemsInStorage(cardStorage: any) {
+    this.cardStorageService.getAllStockItemsInCardStorage().subscribe(
+      res => {
+        this.stockItemsService = res;
+      }
+    );
   }
 }
 

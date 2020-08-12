@@ -24,6 +24,12 @@ export class CardStorageService {
     return this.secureHttpClientService.get('http://localhost:8080/cardstorage/all');
   }
 
+  getAllStockItemsInCardStorage(): Observable<any> {
+    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/get/stockitems/id/1');
+
+
+  }
+
   deleteCardStorage(cardStorage: CardStorage): Observable<any> {
     return this.secureHttpClientService.post('http://localhost:8080/cardstorage/delete', cardStorage);
   }
