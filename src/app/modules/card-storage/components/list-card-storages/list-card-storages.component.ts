@@ -24,7 +24,7 @@ export class ListCardStoragesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCardStorages();
-    this.getStockItemsInStorage(cardStorage);
+    this.getStockItemsInStorage(this.cardStorage);
   }
 
   getCardStorages() {
