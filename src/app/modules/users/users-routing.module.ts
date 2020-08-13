@@ -6,7 +6,8 @@ import {LoginComponent} from './components/login/login.component';
 import {ListRolesComponent} from './components/list-roles/list-roles.component';
 import {CreateRoleComponent} from './components/create-role/create-role.component';
 import {EditInfoComponent} from './components/edit-info/edit-info.component';
-import {LogoutComponent} from "./components/logout/logout.component";
+import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
+import {NewPasswordComponent} from './components/new-password/new-password.component';
 
 const routes: Routes = [
   {
@@ -33,8 +34,12 @@ const routes: Routes = [
         component: EditInfoComponent
       },
       {
-        path: 'logout',
-        component: LogoutComponent
+        path: 'resetpassword',
+        component: ResetPasswordComponent
+      },
+      {
+        path: 'password/reset/:token',
+        component: NewPasswordComponent
       },
       {
         path: 'roles',

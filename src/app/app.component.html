@@ -1,5 +1,4 @@
 <h1>yugioh application</h1>
-<app-logout-button></app-logout-button>
 <!--<div>-->
 <!--  <button mat-menu-item>Item 1</button>-->
 <!--  <a routerLink="/">Home</a>-->
@@ -14,26 +13,5 @@
   <button mat-menu-item (click)="navigateToHome()">Home</button>
   <button mat-menu-item (click)="navigateToUsers()"> Users</button>
 </mat-menu>
-<!--
-<a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
-<a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="/register" routerLinkActive="active">Register</a>-->
-<!--<a href="#" (click)="logoutClicked($event)" id="logout" *ngSwitchCase="true">
-<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a>-->
-<!--<div>-->
-<!--  <table *ngIf="isLoggedIn">-->
-<!--    <tr>-->
-<!--      <td>-->
-<!--        <a href="#" (click)="logoutClicked($event)" id="logout"><span class="yugioh-log-out" aria-hidden="true"></span> Logout</a><br-->
-<!--      /></td>-->
-<!--    </tr>-->
-<!--  </table>-->
-
-<!--  <table *ngIf="! isLoggedIn">-->
-<!--    <tr>-->
-<!--      <td>-->
-<!--        <a [routerLink]="['/login']" id="login"><span class="yugioh-log-in" aria-hidden="true"></span>Login</a><br-->
-<!--      /></td>-->
-<!--    </tr>-->
-<!--  </table>-->
-<!--</div>-->
-
+<a href="#" (click)="logoutClicked($event)" id="logout" *ngSwitchCase="true">
+  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a><br />

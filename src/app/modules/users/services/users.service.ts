@@ -39,6 +39,7 @@ export class UsersService {
   getAllRoles(): Observable<any> {
     return this.secureHttpClientService.get('http://localhost:8080/users/roles/list');
   }
+
   deleteRole(role: Role): Observable<any> {
     return this.secureHttpClientService.post('http://localhost:8080/users/roles/delete', role);
   }
@@ -46,4 +47,9 @@ export class UsersService {
   updateThisUser(user: User) {
     return this.secureHttpClientService.post('http://localhost:8080/user/updatethis', user);
   }
+
+  updateRole(role: Role): Observable<any> {
+    return this.secureHttpClientService.post('http://localhost:8080/users/roles/update', role);
+  }
+
 }
