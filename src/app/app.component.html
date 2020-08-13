@@ -1,4 +1,9 @@
-<h1>yugioh application</h1>
+
+<mat-toolbar>
+  <h1>yugioh application</h1>
+  <span class="spacer"></span>
+  <app-logout></app-logout>
+</mat-toolbar>
 <!--<div>-->
 <!--  <button mat-menu-item>Item 1</button>-->
 <!--  <a routerLink="/">Home</a>-->
@@ -13,5 +18,5 @@
   <button mat-menu-item (click)="navigateToHome()">Home</button>
   <button mat-menu-item (click)="navigateToUsers()"> Users</button>
 </mat-menu>
-<a href="#" (click)="logoutClicked($event)" id="logout" *ngSwitchCase="true">
-  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a><br />
+<!--<a href="#" (click)="logoutClicked($event)" id="logout" *ngSwitchCase="true">-->
+<!--  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a><br />-->
