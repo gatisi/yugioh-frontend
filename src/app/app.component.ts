@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthService} from "./modules/shared/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
   title = 'yugioh';
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private authService: AuthService) {
   }
 
   navigateToHome() {
@@ -29,5 +31,10 @@ export class AppComponent {
   logoutClicked() {
     this.router.navigateByUrl('/users/logout').then();
   }
+  public isLoggedIn: boolean = false;
+
+/*  ngOnInit(): void {
+    this.authService.isLoggedIn().subscribe(status => this.isLoggedIn = status);
+  }*/
 }
 

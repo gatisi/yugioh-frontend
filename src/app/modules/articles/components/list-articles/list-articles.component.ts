@@ -8,9 +8,10 @@ import {UpdateArticleDialogComponent} from "../update-article-dialog/update-arti
 
 @Component({
   selector: 'app-list-articles',
-  templateUrl: './list-articles.component.html',
+  templateUrls: './list-articles.component.html',
   styleUrls: ['./list-articles.component.css']
 })
+
 export class ListArticlesComponent implements OnInit {
 
   public articles = [];
@@ -54,5 +55,8 @@ export class ListArticlesComponent implements OnInit {
 
   addCard(article: Article) {
     this.router.navigateByUrl('stockitems/create/' + article.id);
+  }
+  onBack(): void {
+    this.router.navigate(['/Home']);
   }
 }

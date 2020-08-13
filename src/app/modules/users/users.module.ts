@@ -16,6 +16,7 @@ import { CreateRoleComponent } from './components/create-role/create-role.compon
 import { EditInfoComponent } from './components/edit-info/edit-info.component';
 
 
+
 @NgModule({
   declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent, ListRolesComponent, CreateRoleComponent, EditInfoComponent],
   exports: [

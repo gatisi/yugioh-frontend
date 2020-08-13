@@ -6,6 +6,7 @@ import {LoginComponent} from './components/login/login.component';
 import {ListRolesComponent} from './components/list-roles/list-roles.component';
 import {CreateRoleComponent} from './components/create-role/create-role.component';
 import {EditInfoComponent} from './components/edit-info/edit-info.component';
+import {LogoutComponent} from "./components/logout/logout.component";
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'edit',
         component: EditInfoComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: 'roles',

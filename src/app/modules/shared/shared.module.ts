@@ -17,12 +17,13 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {HttpErrorInterceptor} from './http-error.interceptor';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent],
+  declarations: [WelcomeComponent, LogoutButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -59,6 +60,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     MatAutocompleteModule,
     MatDividerModule,
     MatCardModule,
+    LogoutButtonComponent,
   ],
   providers: [
     AuthService,
