@@ -8,7 +8,7 @@ import {UpdateArticleDialogComponent} from "../update-article-dialog/update-arti
 
 @Component({
   selector: 'app-list-articles',
-  templateUrls: './list-articles.component.html',
+  templateUrl: './list-articles.component.html',
   styleUrls: ['./list-articles.component.css']
 })
 

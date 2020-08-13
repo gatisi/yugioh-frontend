@@ -35,8 +35,6 @@ import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     TestModule,
-
-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
