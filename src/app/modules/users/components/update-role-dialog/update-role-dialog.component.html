@@ -1,0 +1,14 @@
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input type="text" [(ngModel)]="role.role" matInput>
+  </mat-form-field>
+  <br>
+  <button mat-button [mat-dialog-close]="role" (click)="saveRole()">Update</button>
+  <button mat-button (click)="close()">Cancel</button>
+</div>
+
+
+
+
+

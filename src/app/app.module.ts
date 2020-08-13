@@ -15,7 +15,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './modules/users/components/login/login.component';
 import {MatButtonModule} from '@angular/material/button';
 import {TestModule} from './modules/test/test.module';
+import {UpdateArticleDialogComponent} from "./modules/articles/components/update-article-dialog/update-article-dialog.component";
 import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
+import {LogoutComponent} from "./modules/users/components/logout/logout.component";
 
 
 
@@ -23,6 +25,7 @@ import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
   declarations: [
     AppComponent,
     LoginComponent,
+    LogoutComponent,
 
 
 

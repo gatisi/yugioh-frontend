@@ -16,10 +16,11 @@ import { CreateRoleComponent } from './components/create-role/create-role.compon
 import { EditInfoComponent } from './components/edit-info/edit-info.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { UpdateRoleDialogComponent } from './components/update-role-dialog/update-role-dialog.component';
 
 
 @NgModule({
-  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent, ListRolesComponent, CreateRoleComponent, EditInfoComponent, ResetPasswordComponent, NewPasswordComponent],
+  declarations: [CreateUserComponent, ListUsersComponent, UpdateUserDialogComponent, ListRolesComponent, CreateRoleComponent, EditInfoComponent, ResetPasswordComponent, NewPasswordComponent, UpdateRoleDialogComponent],
   exports: [
     CreateUserComponent
   ],
