@@ -1,6 +1,6 @@
 <p>update-article-dialog works!</p>
 
-<div class="example-container">
+<div >
   <mat-form-field appearance="fill">
     <mat-label>BoosterSet</mat-label>
     <input type="text" [(ngModel)]="article.boosterSet" matInput>
@@ -13,7 +13,7 @@
   <br>
   <mat-form-field appearance="fill">
     <mat-label>Edition</mat-label>
-    <mat-select formControlName="edition">
+    <mat-select [(ngModel)]="article.edition">
       <mat-option *ngFor="let type of edition" [value]="type">
         {{type}}
       </mat-option>
@@ -22,7 +22,7 @@
   <br>
   <mat-form-field appearance="fill">
     <mat-label>Rarity</mat-label>
-    <mat-select formControlName="rarity">
+    <mat-select [(ngModel)]="article.rarity">
       <mat-option *ngFor="let type of rarity" [value]="type">
         {{type}}
       </mat-option>
@@ -31,7 +31,7 @@
   <br>
   <mat-form-field appearance="fill">
     <mat-label>Card Type</mat-label>
-    <mat-select formControlName="cardType">
+    <mat-select [(ngModel)]="article.cardType">
       <mat-option *ngFor="let type of cardType" [value]="type">
         {{type}}
       </mat-option>
