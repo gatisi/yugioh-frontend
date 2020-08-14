@@ -25,7 +25,7 @@ export class CardStorageService {
   }
 
   getAllStockItemsInCardStorage(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/get/stockitems/id/1');
+    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/get/stockitems/1');
 
 
   }
