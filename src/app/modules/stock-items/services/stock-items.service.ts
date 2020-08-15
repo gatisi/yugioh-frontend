@@ -27,6 +27,10 @@ export class StockItemsService {
     return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/all');
   }
 
+  getStockItemById(id) {
+    return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/id/1');
+  }
+
   deleteStockItem(stockItem: StockItem): Observable<any> {
     return this.secureHttpClientService.post('http://localhost:8080/stockitem/delete', stockItem);
 
