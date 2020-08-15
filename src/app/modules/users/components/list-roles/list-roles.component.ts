@@ -3,6 +3,7 @@ import {UsersService} from '../../services/users.service';
 import {Role} from '../../entities/role';
 import {UpdateRoleDialogComponent} from '../update-role-dialog/update-role-dialog.component';
 import {MatDialog} from "@angular/material/dialog";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-roles',
@@ -16,6 +17,7 @@ export class ListRolesComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private dialog: MatDialog,
+    private router: Router
   ) {
   }
 
