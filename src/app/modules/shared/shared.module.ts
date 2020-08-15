@@ -18,12 +18,14 @@ import {MatCardModule} from '@angular/material/card';
 import {HttpErrorInterceptor} from './http-error.interceptor';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { HeaderComponent } from './components/header/header.component';
+import {RouterModule} from '@angular/router';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, LogoutComponent],
+  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -41,6 +43,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatAutocompleteModule,
     MatDividerModule,
     MatCardModule,
+    RouterModule,
 
   ],
   exports: [
@@ -61,6 +64,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     MatDividerModule,
     MatCardModule,
     LogoutComponent,
+    HeaderComponent,
   ],
   providers: [
     AuthService,
