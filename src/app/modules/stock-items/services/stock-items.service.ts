@@ -21,4 +21,9 @@ export class StockItemsService {
     // stockItem.article = article;
     return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/all');
   }
+
+  deleteStockItem(stockItem: StockItem): Observable<any> {
+    return this.secureHttpClientService.post('http://localhost:8080/stockitem/delete', stockItem);
+
+  }
 }

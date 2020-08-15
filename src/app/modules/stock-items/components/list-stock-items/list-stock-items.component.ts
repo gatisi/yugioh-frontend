@@ -10,7 +10,7 @@ import {ArticlesService} from "../../../articles/services/articles.service";
 })
 export class ListStockItemsComponent implements OnInit {
   public stockItems = [];
-  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
+  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type','delete'];
   displayedColumnsArticles: string[] = ['id', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
 
 
@@ -31,6 +31,13 @@ export class ListStockItemsComponent implements OnInit {
         this.stockItems = res;
         console.log(res);
       }
+    );
+
+  }
+
+  deleteStockItem(stockItem: StockItem): void {
+    this.stockItemsService.deleteStockItem(stockItem).subscribe(
+      res => this.ngOnInit()
     );
 
   }

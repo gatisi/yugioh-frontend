@@ -2,6 +2,7 @@
   <span>Stock Items List</span>
   <span class="fill-space"></span>
   <button mat-button routerLink="/articles/list">Add Stock Item</button>
+</mat-toolbar>
 
 <table [dataSource]="stockItems" class="mat-elevation-z8" mat-table>
   <ng-container matColumnDef="id">
@@ -57,6 +58,14 @@
   <ng-container matColumnDef="card type">
     <th *matHeaderCellDef mat-header-cell> Card Type</th>
     <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="delete">
+    <th *matHeaderCellDef mat-header-cell> Delete Stock Item</th>
+    <td *matCellDef="let stockItem" mat-cell>
+      <button (click)="deleteStockItem(stockItem)" color="warn" mat-raised-button>Delete</button>
+    </td>
   </ng-container>
 
   <tr *matHeaderRowDef="displayedColumnsStockItems" mat-header-row></tr>
