@@ -1,4 +1,4 @@
-<div *ngIf="article">
+<div *ngIf="article" class ="stockItemForm">
   <mat-form-field appearance="fill">
     <mat-label>Booster Set</mat-label>
     <input type="text" matInput [readonly]="true" value="{{article.boosterSet}}">
@@ -21,9 +21,8 @@
   </mat-form-field>
 </div>
 
-<form [formGroup]="stockItemCreationForm">
+<form [formGroup]="stockItemCreationForm" class ="stockItemForm">
   <div class="example-container">
-
 
     <mat-form-field appearance="fill">
       <mat-label>Card value</mat-label>
