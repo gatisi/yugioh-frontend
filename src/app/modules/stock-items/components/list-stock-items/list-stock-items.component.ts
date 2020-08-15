@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {StockItem} from "../../entities/stock-item";
 import {StockItemsService} from "../../services/stock-items.service";
 import {ArticlesService} from "../../../articles/services/articles.service";
+import {UpdateStockItemDialogComponent} from "../update-stock-item-dialog/update-stock-item-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-stock-items',
@@ -10,13 +13,15 @@ import {ArticlesService} from "../../../articles/services/articles.service";
 })
 export class ListStockItemsComponent implements OnInit {
   public stockItems = [];
-  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
+  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'update', 'delete'];
   displayedColumnsArticles: string[] = ['id', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
 
 
   constructor(
     private stockItemsService: StockItemsService,
     private articlesService: ArticlesService,
+    private dialog: MatDialog,
+    private router: Router,
   ) {
   }
 
@@ -34,4 +39,21 @@ export class ListStockItemsComponent implements OnInit {
     );
 
   }
+
+  deleteStockItem(stockItem: StockItem): void {
+    this.stockItemsService.deleteStockItem(stockItem).subscribe(
+      res => this.ngOnInit()
+    );
+
+  }
+
+  editStockItem(stockItem: StockItem): void {
+    const dialogRef = this.dialog.open(UpdateStockItemDialogComponent, {
+      width: '600px',
+      data: stockItem
+    });
+    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+
+  }
+
 }
