@@ -1,0 +1,23 @@
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: space-around;
+  border: 3px solid grey;
+  overflow: hidden;
+  margin:5px;
+
+}
+
+.image {
+  text-align: center;
+
+}
+.scale {
+  transition: 5s;
+}
+.scale:hover {
+  transform: scale(1.3);
+}
+
