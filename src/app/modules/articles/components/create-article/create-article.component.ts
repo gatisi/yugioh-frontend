@@ -12,11 +12,11 @@ import {EnumsService} from "../../../shared/enums.service";
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-    edition = [];
-    rarity = [];
-    cardType = [];
+  edition = [];
+  rarity = [];
+  cardType = [];
 
-    articleForm = new FormGroup({
+  articleForm = new FormGroup({
     boosterSet: new FormControl(''),
     cardName: new FormControl(''),
     edition: new FormControl(''),
@@ -46,10 +46,11 @@ export class CreateArticleComponent implements OnInit {
       res => this.edition = res
     );
   }
+
   saveArticle() {
     console.log(this.articleForm.getRawValue());
     this.articlesService.saveArticle(this.articleForm.getRawValue()).subscribe();
-
+    this.router.navigateByUrl('articles/list');
   }
 
 }
