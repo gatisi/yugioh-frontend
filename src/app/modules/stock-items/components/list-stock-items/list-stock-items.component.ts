@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {StockItem} from "../../entities/stock-item";
 import {StockItemsService} from "../../services/stock-items.service";
 import {ArticlesService} from "../../../articles/services/articles.service";
+import {UpdateStockItemDialogComponent} from "../update-stock-item-dialog/update-stock-item-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-stock-items',
@@ -14,9 +17,13 @@ export class ListStockItemsComponent implements OnInit {
   displayedColumnsArticles: string[] = ['id', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
 
 
+
+
   constructor(
     private stockItemsService: StockItemsService,
     private articlesService: ArticlesService,
+    private dialog: MatDialog,
+    private router: Router,
   ) {
   }
 
@@ -43,11 +50,12 @@ export class ListStockItemsComponent implements OnInit {
   }
 
   editStockItem(stockItem: StockItem): void {
-    const dialogRef = this.dialog.open(UdateStockitemDialogComponent, {
+    const dialogRef = this.dialog.open(UpdateStockItemDialogComponent, {
       width: '600px',
       data: stockItem
     });
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
 
   }
+
 }

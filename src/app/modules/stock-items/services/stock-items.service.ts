@@ -17,6 +17,11 @@ export class StockItemsService {
     return this.secureHttpClientService.post('http://localhost:8080/stockitem/create', stockItem);
   }
 
+  updateStockItem(stockItem: StockItem): Observable<any> {
+    return this.secureHttpClientService.post ('http://localhost:8080/stockitem/update', stockItem);
+
+  }
+
   getAllStockItems(stockItem: string[], article: string[]): Observable<any> {
     // stockItem.article = article;
     return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/all');
@@ -26,4 +31,6 @@ export class StockItemsService {
     return this.secureHttpClientService.post('http://localhost:8080/stockitem/delete', stockItem);
 
   }
+
+
 }
