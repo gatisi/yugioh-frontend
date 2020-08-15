@@ -1,1 +1,13 @@
-<p>add-stock-item-to-sold-storage-dialog works!</p>
+<p>Enter the card value when sold and click "Save"!</p>
+
+<div >
+  <mat-form-field appearance="fill">
+    <mat-label>Card value when sold</mat-label>
+    <input type="number" [(ngModel)]="stockItem.cardValueWhenSold" matInput>
+  </mat-form-field>
+  <br>
+</div>
+
+
+<button mat-button [mat-dialog-close]="stockItem" (click)="saveStockItem()">Update</button>
+<button mat-button (click)="close()">Cancel</button>
