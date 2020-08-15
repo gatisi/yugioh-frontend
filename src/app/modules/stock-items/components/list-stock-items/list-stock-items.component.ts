@@ -5,6 +5,7 @@ import {ArticlesService} from "../../../articles/services/articles.service";
 import {UpdateStockItemDialogComponent} from "../update-stock-item-dialog/update-stock-item-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
+import {DialogComponent} from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-list-stock-items',
@@ -48,12 +49,12 @@ export class ListStockItemsComponent implements OnInit {
   }
 
   editStockItem(stockItem: StockItem): void {
-    const dialogRef = this.dialog.open(UpdateStockItemDialogComponent, {
+    console.log(stockItem);
+    const dialogRef = this.dialog.open(DialogComponent, {
       width: '600px',
       data: stockItem
     });
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
-
   }
 
 }
