@@ -14,6 +14,7 @@ export class UpdateStockItemDialogComponent implements OnInit {
   edition = [];
   rarity = [];
   cardType = [];
+  cardCondition = [];
   // stockItemId: number;
 
   constructor(public dialogRef: MatDialogRef<UpdateStockItemDialogComponent>,
@@ -43,6 +44,7 @@ export class UpdateStockItemDialogComponent implements OnInit {
   //   });
   // }
 
+
   getStockItem(stockItemId){
     this.stockItemsService.getStockItemById(stockItemId).subscribe(
       res => {this.stockItem = res;
@@ -60,6 +62,9 @@ export class UpdateStockItemDialogComponent implements OnInit {
     );
     this.enumsService.getCardEditions().subscribe(
       res => this.edition = res
+    );
+    this.enumsService.getCardConditions().subscribe(
+      res => this.cardCondition = res
     );
   }
 

@@ -4,6 +4,7 @@ import {Article} from "../../../articles/entities/article";
 import {CardStorage} from "../../entities/card-storage";
 import {UpdateUserDialogComponent} from "../../../users/components/update-user-dialog/update-user-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {UpdateCardStorageDialogComponent} from "../update-card-storage-dialog/update-card-storage-dialog.component";
 
 @Component({
   selector: 'app-list-card-storages',
@@ -39,7 +40,7 @@ export class ListCardStoragesComponent implements OnInit {
   }
 
   editCardStorage(cardStorage: CardStorage): void {
-    const dialogRef = this.dialog.open(UpdateUserDialogComponent, {
+    const dialogRef = this.dialog.open(UpdateCardStorageDialogComponent, {
       width: '400px',
       data: cardStorage
     });
