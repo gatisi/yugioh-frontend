@@ -9,9 +9,10 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {UpdateStockItemDialogComponent} from './components/update-stock-item-dialog/update-stock-item-dialog.component';
+import { AddStockItemToSoldStorageDialogComponent } from './components/add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
 
 @NgModule({
-  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent],
+  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent, AddStockItemToSoldStorageDialogComponent],
   imports: [
     CommonModule,
     StockItemsRoutingModule,

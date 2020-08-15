@@ -67,6 +67,13 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="add to sold">
+    <th *matHeaderCellDef mat-header-cell> Add To Sold</th>
+    <td *matCellDef="let stockItem" mat-cell>
+      <button (click)="addToSold(stockItem)" color="accent" mat-raised-button>Add To Sold</button>
+    </td>
+  </ng-container>
+
 
   <ng-container matColumnDef="delete">
     <th *matHeaderCellDef mat-header-cell> Delete Stock Item</th>

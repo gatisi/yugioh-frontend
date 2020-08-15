@@ -5,6 +5,7 @@ import {ArticlesService} from "../../../articles/services/articles.service";
 import {UpdateStockItemDialogComponent} from "../update-stock-item-dialog/update-stock-item-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
+import {AddStockItemToSoldStorageDialogComponent} from "../add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component";
 
 @Component({
   selector: 'app-list-stock-items',
@@ -13,7 +14,7 @@ import {Router} from "@angular/router";
 })
 export class ListStockItemsComponent implements OnInit {
   public stockItems = [];
-  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'update', 'delete'];
+  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'update', 'add to sold', 'delete'];
   displayedColumnsArticles: string[] = ['id', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
 
 
@@ -56,4 +57,13 @@ export class ListStockItemsComponent implements OnInit {
 
   }
 
+  addToSold(stockItem: StockItem) {
+    stockItem.inShop = false;
+    stockItem.cardStorage.storageName = 'SOLD';
+    const dialogRef = this.dialog.open(AddStockItemToSoldStorageDialogComponent, {
+      width: '600px',
+      data: stockItem
+    });
+    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+  }
 }
