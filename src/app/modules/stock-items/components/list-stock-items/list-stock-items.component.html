@@ -1,3 +1,8 @@
+<mat-toolbar>
+  <span>Stock Items List</span>
+  <span class="fill-space"></span>
+  <button mat-button routerLink="/articles/list">Add Stock Item</button>
+
 <table [dataSource]="stockItems" class="mat-elevation-z8" mat-table>
   <ng-container matColumnDef="id">
     <th *matHeaderCellDef mat-header-cell> ID</th>
