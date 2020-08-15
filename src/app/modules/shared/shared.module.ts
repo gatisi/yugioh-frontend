@@ -7,7 +7,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {AuthService} from './auth.service';
 import {SecureHttpClientService} from './secure-http-client.service';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -45,6 +45,7 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     RouterModule,
 
+
   ],
   exports: [
     FormsModule,
@@ -65,6 +66,7 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     LogoutComponent,
     HeaderComponent,
+
   ],
   providers: [
     AuthService,

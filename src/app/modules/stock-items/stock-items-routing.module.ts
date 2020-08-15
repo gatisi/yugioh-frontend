@@ -17,10 +17,10 @@ const routes: Routes = [
         path: 'list',
         component: ListStockItemsComponent
       },
-      {
-        path: 'edit/:stockItemId',
-        component: UpdateStockItemDialogComponent
-      },
+      // {
+      //   path: 'edit/:stockItemId',
+      //   component: UpdateStockItemDialogComponent
+      // },
 
     ]
   }
