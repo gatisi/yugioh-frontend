@@ -60,6 +60,13 @@
     <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="update">
+    <th *matHeaderCellDef mat-header-cell> Update Stock Item</th>
+    <td *matCellDef="let stockItem" mat-cell>
+      <button (click)="editStockItem(stockItem)" mat-raised-button>Update</button>
+    </td>
+  </ng-container>
+
 
   <ng-container matColumnDef="delete">
     <th *matHeaderCellDef mat-header-cell> Delete Stock Item</th>

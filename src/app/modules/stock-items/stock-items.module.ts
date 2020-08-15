@@ -8,9 +8,10 @@ import {SharedModule} from '../shared/shared.module';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { UpdateStockItemComponent } from './components/update-stock-item/update-stock-item.component';
 
 @NgModule({
-  declarations: [CreateStockItemComponent, ListStockItemsComponent],
+  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemComponent],
   imports: [
     CommonModule,
     StockItemsRoutingModule,

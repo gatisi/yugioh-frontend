@@ -10,7 +10,7 @@ import {ArticlesService} from "../../../articles/services/articles.service";
 })
 export class ListStockItemsComponent implements OnInit {
   public stockItems = [];
-  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type','delete'];
+  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'delete'];
   displayedColumnsArticles: string[] = ['id', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
 
 
@@ -39,6 +39,15 @@ export class ListStockItemsComponent implements OnInit {
     this.stockItemsService.deleteStockItem(stockItem).subscribe(
       res => this.ngOnInit()
     );
+
+  }
+
+  editStockItem(stockItem: StockItem): void {
+    const dialogRef = this.dialog.open(UdateStockitemDialogComponent, {
+      width: '600px',
+      data: stockItem
+    });
+    dialogRef.afterClosed().subscribe(result => this.ngOnInit());
 
   }
 }
