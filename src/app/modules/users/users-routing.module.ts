@@ -6,6 +6,8 @@ import {LoginComponent} from './components/login/login.component';
 import {ListRolesComponent} from './components/list-roles/list-roles.component';
 import {CreateRoleComponent} from './components/create-role/create-role.component';
 import {EditInfoComponent} from './components/edit-info/edit-info.component';
+import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
+import {NewPasswordComponent} from './components/new-password/new-password.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,14 @@ const routes: Routes = [
       {
         path: 'edit',
         component: EditInfoComponent
+      },
+      {
+        path: 'resetpassword',
+        component: ResetPasswordComponent
+      },
+      {
+        path: 'password/reset/:token',
+        component: NewPasswordComponent
       },
       {
         path: 'roles',

@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ArticlesService} from "../../services/articles.service";
 import {Article} from "../../entities/article";
+import {EnumsService} from "../../../shared/enums.service";
 
 @Component({
   selector: 'app-update-article-dialog',
@@ -13,25 +14,33 @@ export class UpdateArticleDialogComponent implements OnInit {
   edition = [];
   rarity = [];
   cardType = [];
-  articleForm = new FormGroup({
-    boosterSet: new FormControl(''),
-    cardName: new FormControl(''),
-    edition: new FormControl(''),
-    rarity: new FormControl(''),
-    cardType: new FormControl(''),
-  });
+
 
   constructor(public dialogRef: MatDialogRef<UpdateArticleDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public article: Article,
-              private articlesService: ArticlesService
+              private articlesService: ArticlesService,
+              private enumsService: EnumsService
   ) { }
 
 
   ngOnInit(): void {
+    this.getEnums();
   }
   saveArticle() {
     this.articlesService.updateArticle(this.article).subscribe(
       res => this.dialogRef.close()
+    );
+  }
+
+  getEnums() {
+    this.enumsService.getCardTypes().subscribe(
+      res => this.cardType = res
+    );
+    this.enumsService.getCardRarities().subscribe(
+      res => this.rarity = res
+    );
+    this.enumsService.getCardEditions().subscribe(
+      res => this.edition = res
     );
   }
   close(): void {
