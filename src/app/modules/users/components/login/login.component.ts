@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../../../shared/auth.service';
 import {AuthenticationResult} from '../../entities/AuthenticationResult';
 import {Router} from '@angular/router';
+import {UserInfoService} from '../../../shared/user-info.service';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     private httpClient: HttpClient,
     private authService: AuthService,
     private router: Router,
+    private userInfoService: UserInfoService,
   ) {
   }
 
@@ -32,6 +34,9 @@ export class LoginComponent implements OnInit {
       authenticationResult => {
         this.authService.saveAuthentication(
           authenticationResult
+        );
+        this.userInfoService.getUserInfo().subscribe(
+          userInfo => sessionStorage.setItem('yugioh.user.info', JSON.stringify(userInfo))
         );
         this.router.navigateByUrl('/').then();
       }
