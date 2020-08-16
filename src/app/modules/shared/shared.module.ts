@@ -20,12 +20,13 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HeaderComponent } from './components/header/header.component';
 import {RouterModule} from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
 
 @NgModule({
-  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent],
+  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent, FooterComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -66,7 +67,7 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     LogoutComponent,
     HeaderComponent,
-
+    FooterComponent,
   ],
   providers: [
     AuthService,

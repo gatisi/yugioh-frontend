@@ -39,6 +39,8 @@ export class ListCardStoragesComponent implements OnInit {
     );
   }
 
+
+
   editCardStorage(cardStorage: CardStorage): void {
     const dialogRef = this.dialog.open(UpdateCardStorageDialogComponent, {
       width: '400px',
