@@ -14,13 +14,15 @@ const routes: Routes = [
         component: CreateStockItemComponent
       },
       {
-        path: 'list/',
+        path: 'list',
         component: ListStockItemsComponent
       },
       {
         path: 'list/id/:id/searchBy/:field',
         component: ListStockItemsComponent
       },
+
+
       // {
       //   path: 'edit/:stockItemId',
       //   component: UpdateStockItemDialogComponent

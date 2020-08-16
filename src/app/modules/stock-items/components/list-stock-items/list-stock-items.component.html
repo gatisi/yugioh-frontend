@@ -4,19 +4,19 @@
   <button mat-button routerLink="/articles/list">Add Stock Item</button>
 </mat-toolbar>
 
-<table [dataSource]="stockItems" class="mat-elevation-z8" mat-table>
+<table [dataSource]="stockItems" class="mat-elevation-z8" mat-table matSort>
   <ng-container matColumnDef="id">
     <th *matHeaderCellDef mat-header-cell> ID</th>
     <td *matCellDef="let stockItem" mat-cell> {{stockItem.id}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="card condition">
-    <th *matHeaderCellDef mat-header-cell> Card Condition</th>
+  <ng-container matColumnDef="card condition" >
+    <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Condition</th>
     <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardCondition}} </td>
   </ng-container>
 
   <ng-container matColumnDef="card value">
-    <th *matHeaderCellDef mat-header-cell> Card Value</th>
+    <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Value</th>
     <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValue}} </td>
   </ng-container>
 
