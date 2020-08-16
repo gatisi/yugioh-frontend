@@ -13,17 +13,8 @@ td.red {
   font-weight: bold;
 }
 
-div.red {
-  outline-style: solid;
-  outline-color: green;
-}
-
 td.green {
   font-weight: bold;
   color: green;
 }
 
-div.green {
-  outline-style: solid;
-  outline-color: green;
-}
