@@ -5,13 +5,14 @@ import { StockItemsRoutingModule } from './stock-items-routing.module';
 import { CreateStockItemComponent } from './components/create-stock-item/create-stock-item.component';
 import { ListStockItemsComponent } from './components/list-stock-items/list-stock-items.component';
 import {SharedModule} from '../shared/shared.module';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {UpdateStockItemDialogComponent} from './components/update-stock-item-dialog/update-stock-item-dialog.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { AddStockItemToSoldStorageDialogComponent } from './components/add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
 
 @NgModule({
-  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent, DialogComponent],
+  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent, AddStockItemToSoldStorageDialogComponent],
   imports: [
     CommonModule,
     StockItemsRoutingModule,

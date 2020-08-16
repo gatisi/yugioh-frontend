@@ -37,4 +37,8 @@ export class StockItemsService {
   }
 
 
+  saveStockItemAsSold(stockItem: StockItem): Observable<any> {
+    return this.secureHttpClientService.post('http://localhost:8080/stockitem/sold', stockItem);
+
+  }
 }
