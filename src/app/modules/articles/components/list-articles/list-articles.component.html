@@ -37,6 +37,11 @@
     <td *matCellDef="let article" mat-cell> {{article.cardType}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="card count">
+    <th *matHeaderCellDef mat-header-cell> Card quantity</th>
+    <td *matCellDef="let article" mat-cell [ngClass]="getClassByQuantity(article.cardCount)"> {{article.cardCount}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="update">
     <th *matHeaderCellDef mat-header-cell> Update Article</th>
     <td *matCellDef="let article" mat-cell>
