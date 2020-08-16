@@ -1,6 +1,6 @@
-<div *ngIf="userInfo">
+<div *ngIf="getUserInfo()">
   <h1> World of Yugioh </h1>
-<mat-toolbar *ngIf="userInfo.role.role=='ROLE_ADMINISTRATOR'">
+<mat-toolbar *ngIf="getUserInfo().role.role=='ROLE_ADMINISTRATOR'">
   <a class="header-button" routerLink="/" mat-stroked-button>Home</a>
   <a class="header-button" routerLink="/articles/list" mat-stroked-button>Articles</a>
   <a class="header-button" routerLink="/stockitems/list" mat-stroked-button>Stock Items</a>
@@ -12,7 +12,7 @@
   <app-logout></app-logout>
 </mat-toolbar>
 
-<mat-toolbar *ngIf="userInfo.role.role!='ROLE_ADMINISTRATOR'">
+<mat-toolbar *ngIf="getUserInfo().role.role!='ROLE_ADMINISTRATOR'">
   <a class="header-button" routerLink="/" mat-stroked-button>Home</a>
   <a class="header-button" routerLink="/stockitems/list" mat-stroked-button>Stock Items</a>
   <a class="header-button" routerLink="/users/edit" mat-stroked-button>My Profile</a>

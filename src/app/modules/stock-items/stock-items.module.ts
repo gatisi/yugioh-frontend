@@ -10,14 +10,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {UpdateStockItemDialogComponent} from './components/update-stock-item-dialog/update-stock-item-dialog.component';
 import { AddStockItemToSoldStorageDialogComponent } from './components/add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent, AddStockItemToSoldStorageDialogComponent],
-  imports: [
-    CommonModule,
-    StockItemsRoutingModule,
-    SharedModule,
-    MatCheckboxModule,
-  ]
+    imports: [
+        CommonModule,
+        StockItemsRoutingModule,
+        SharedModule,
+        MatCheckboxModule,
+        MatSortModule,
+    ]
 })
 export class StockItemsModule { }
