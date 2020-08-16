@@ -10,4 +10,6 @@ mat-form-field{
 form{
   width: 500px;
   margin: auto;
+  margin-top: 60px;
+
 }
