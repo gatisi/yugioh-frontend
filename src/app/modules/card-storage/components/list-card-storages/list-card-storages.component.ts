@@ -5,6 +5,7 @@ import {CardStorage} from "../../entities/card-storage";
 import {UpdateUserDialogComponent} from "../../../users/components/update-user-dialog/update-user-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateCardStorageDialogComponent} from "../update-card-storage-dialog/update-card-storage-dialog.component";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-card-storages',
@@ -17,7 +18,8 @@ export class ListCardStoragesComponent implements OnInit {
 
   constructor(
     private cardStorageService: CardStorageService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router,
   ) {
   }
 
@@ -45,6 +47,10 @@ export class ListCardStoragesComponent implements OnInit {
       data: cardStorage
     });
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+  }
+
+  goToStockItemsList(id) {
+    this.router.navigateByUrl('stockitems/list/id/' + id + '/searchBy/storage');
   }
 }
 

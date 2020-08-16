@@ -1,6 +1,6 @@
 
 <mat-toolbar>
-  <span>List of all Card Storages </span>
+  <span>Storage List </span>
   <span class="fill-space"></span>
   <button mat-button routerLink="/cardstorage/create">Add Card Storage</button>
 </mat-toolbar>
@@ -13,7 +13,11 @@
 
   <ng-container matColumnDef="storageName">
     <th *matHeaderCellDef mat-header-cell> Storage name</th>
-    <td *matCellDef="let cardStorage" mat-cell> {{cardStorage.storageName}} </td>
+    <td *matCellDef="let cardStorage" mat-cell (click)="goToStockItemsList(cardStorage.id)">
+
+      {{cardStorage.storageName}}
+
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="update">

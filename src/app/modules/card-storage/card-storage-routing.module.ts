@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ListCardStoragesComponent} from './components/list-card-storages/list-card-storages.component';
 import {CreateCardStorageComponent} from './components/create-card-storage/create-card-storage.component';
+import {ListStockItemsComponent} from "../stock-items/components/list-stock-items/list-stock-items.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
         path: 'update/:cardStorageId',
         component: CreateCardStorageComponent
       },
+
 
 
     ]

@@ -4,8 +4,9 @@ import {StockItemsService} from "../../services/stock-items.service";
 import {ArticlesService} from "../../../articles/services/articles.service";
 import {UpdateStockItemDialogComponent} from "../update-stock-item-dialog/update-stock-item-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AddStockItemToSoldStorageDialogComponent} from "../add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component";
+import {CardStorage} from "../../../card-storage/entities/card-storage";
 
 @Component({
   selector: 'app-list-stock-items',
@@ -23,32 +24,48 @@ export class ListStockItemsComponent implements OnInit {
     private articlesService: ArticlesService,
     private dialog: MatDialog,
     private router: Router,
+    private route: ActivatedRoute,
   ) {
   }
+
 
   ngOnInit(): void {
     this.getStockItems();
     this.articlesService.getArticles();
+
   }
 
   getStockItems() {
     this.stockItemsService.getAllStockItems(this.displayedColumnsStockItems, this.displayedColumnsArticles).subscribe(
       res => {
         this.stockItems = res;
-        console.log(res);
+        this.route.params.subscribe(params => {
+          console.log(this.stockItems);
+          if (params.field && params.id) {
+            console.log(this.stockItems[0].cardStorage.id);
+            this.stockItems = this.filterByFields(params.id,this.stockItems,'storage');
+            console.log(this.stockItems);
+          }
+
+        });
       }
     );
 
   }
 
-  deleteStockItem(stockItem: StockItem): void {
+
+  deleteStockItem(stockItem: StockItem
+  ):
+    void {
     this.stockItemsService.deleteStockItem(stockItem).subscribe(
       res => this.ngOnInit()
     );
 
   }
 
-  editStockItem(stockItem: StockItem): void {
+  editStockItem(stockItem: StockItem
+  ):
+    void {
     const dialogRef = this.dialog.open(UpdateStockItemDialogComponent, {
       width: '600px',
       data: stockItem
@@ -57,7 +74,8 @@ export class ListStockItemsComponent implements OnInit {
 
   }
 
-  addToSold(stockItem: StockItem) {
+  addToSold(stockItem: StockItem
+  ) {
     stockItem.inShop = false;
     stockItem.cardStorage.storageName = 'SOLD';
     const dialogRef = this.dialog.open(AddStockItemToSoldStorageDialogComponent, {
@@ -65,6 +83,36 @@ export class ListStockItemsComponent implements OnInit {
       data: stockItem
     });
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
+  }
+
+  // filterByFields(stockItems: StockItem[]
+  // ): StockItem[] {
+  //   this.route.params.subscribe(params => {
+  //     if (params.field && params.id) return stockItems.filter(
+  //       stockItem => stockItem.cardStorage.id === params.id
+  //     );
+  //
+  //   });
+  //   return null;
+  // }
+
+  filterByFields(id, stockItems: StockItem[], filterBy: String) {
+    switch (filterBy) {
+      case "storage":
+        return stockItems.filter(
+          stockItem => stockItem.cardStorage.id == id
+        );
+        break;
+
+      case "article":
+        return stockItems.filter(
+          stockItem => stockItem.article.id == id
+        );
+        break;
+
+    }
+
+
   }
 
 }

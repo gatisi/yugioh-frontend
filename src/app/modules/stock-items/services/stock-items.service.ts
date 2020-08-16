@@ -41,4 +41,8 @@ export class StockItemsService {
     return this.secureHttpClientService.post('http://localhost:8080/stockitem/sold', stockItem);
 
   }
+
+  getStockItemsByStorageId(): Observable<any> {
+    return this.secureHttpClientService.get('http://localhost:8080//cardstorage/get/stockitems/:storageId');
+  }
 }
