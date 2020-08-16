@@ -14,8 +14,10 @@
 
   <ng-container matColumnDef="storageName">
     <th *matHeaderCellDef mat-header-cell> Storage name</th>
-    <td *matCellDef="let cardStorage" mat-cell> <a href="stockitems/list">{{cardStorage.storageName}}</a> </td>
+    <td *matCellDef="let cardStorage" mat-cell>{{cardStorage.storageName}}</td>
   </ng-container>
+
+
 
   <ng-container matColumnDef="update">
     <th *matHeaderCellDef mat-header-cell> Update Storage</th>
