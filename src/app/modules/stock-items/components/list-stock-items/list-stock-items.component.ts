@@ -14,7 +14,7 @@ import {AddStockItemToSoldStorageDialogComponent} from "../add-stock-item-to-sol
 })
 export class ListStockItemsComponent implements OnInit {
   public stockItems = [];
-  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'update', 'add to sold', 'delete'];
+  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'storage', 'update', 'add to sold', 'delete'];
   displayedColumnsArticles: string[] = ['id', 'booster set', 'card name', 'edition', 'rarity', 'card type'];
 
 
@@ -66,4 +66,5 @@ export class ListStockItemsComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
   }
+
 }

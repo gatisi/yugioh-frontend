@@ -60,6 +60,11 @@
     <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="storage">
+    <th *matHeaderCellDef mat-header-cell>Storage</th>
+    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardStorage.storageName}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="update">
     <th *matHeaderCellDef mat-header-cell> Update Stock Item</th>
     <td *matCellDef="let stockItem" mat-cell>

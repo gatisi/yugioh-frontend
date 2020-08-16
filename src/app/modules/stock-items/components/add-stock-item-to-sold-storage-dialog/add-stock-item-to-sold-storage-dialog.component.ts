@@ -10,10 +10,11 @@ import {conditionallyCreateMapObjectLiteral} from "@angular/compiler/src/render3
   styleUrls: ['./add-stock-item-to-sold-storage-dialog.component.css']
 })
 export class AddStockItemToSoldStorageDialogComponent implements OnInit {
-  private stockItemsService: StockItemsService;
+
 
   constructor(public dialogRef: MatDialogRef<AddStockItemToSoldStorageDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public stockItem: StockItem,
+              private stockItemsService: StockItemsService,
   ) {
   }
 
