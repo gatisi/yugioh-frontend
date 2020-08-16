@@ -22,8 +22,7 @@ export class StockItemsService {
 
   }
 
-  getAllStockItems(stockItem: string[], article: string[]): Observable<any> {
-    // stockItem.article = article;
+  getAllStockItems(): Observable<any> {
     return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/all');
   }
 

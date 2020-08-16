@@ -16,10 +16,7 @@ export class AuthService {
   }
 
   logout() {
-    /*void {
-    sessionStorage.clear();*/
-    sessionStorage.removeItem('yugioh.token');
-/*    sessionStorage.router.navigateByUrl(url: 'users/login');*/
+    sessionStorage.clear();
   }
   getToken(): string {
     return sessionStorage.getItem('yugioh.token');
