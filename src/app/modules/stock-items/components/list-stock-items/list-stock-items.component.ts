@@ -78,6 +78,8 @@ export class ListStockItemsComponent implements OnInit {
 
   }
 
+
+
   deleteStockItem(stockItem: StockItem): void {
     this.stockItemsService.deleteStockItem(stockItem).subscribe(
       res => this.ngOnInit()

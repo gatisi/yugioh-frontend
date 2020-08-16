@@ -1,8 +1,20 @@
 
-table{
+table {
   width: 100%;
 }
+
 .fill-space {
   flex: 1 1 auto;
+}
+
+
+td.red {
+  color: red;
+  font-weight: bold;
+}
+
+td.green {
+  font-weight: bold;
+  color: green;
 }
 

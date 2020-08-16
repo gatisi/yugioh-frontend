@@ -9,18 +9,20 @@ import {UserInfoService} from '../../user-info.service';
 })
 export class HeaderComponent implements OnInit {
 
-
-  constructor(
-
-  ) {
+  userInfo;
+  constructor(private userInfoService: UserInfoService) {
 
   }
 
   ngOnInit(): void {
+    this.userInfoService.getUserInfo().subscribe(
+      userInfo => {
+        this.userInfo = userInfo;
+        console.log(userInfo);
+      }
+    );
   }
-
-  getUserInfo() {
-    return JSON.parse(sessionStorage.getItem('yugioh.user.info'));
-  }
-
 }
+
+
+

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {SecureHttpClientService} from '../../shared/secure-http-client.service';
 import {Observable} from 'rxjs';
 import {Article} from '../entities/article';
+import {Articleview} from "../entities/articleview";
 
 
 @Injectable({
@@ -36,4 +37,9 @@ export class ArticlesService {
   getArticleById(id: number): Observable<Article> {
     return this.secureHttpClientService.get('http://localhost:8080/article/id/' + id);
   }
+
+  getAllArticlesView(): Observable<Articleview[]> {
+    return this.secureHttpClientService.get('http://localhost:8080/articleview/all');
+  }
+
 }

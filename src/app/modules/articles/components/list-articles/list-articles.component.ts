@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {ArticlesService} from "../../services/articles.service";
-import {MatDialog} from "@angular/material/dialog";
-import {Article} from "../../entities/article";
+import {Component, OnInit} from '@angular/core';
+import {ArticlesService} from '../../services/articles.service';
+import {MatDialog} from '@angular/material/dialog';
+import {Article} from '../../entities/article';
 import {Router} from '@angular/router';
-import {UpdateArticleDialogComponent} from "../update-article-dialog/update-article-dialog.component";
+import {UpdateArticleDialogComponent} from '../update-article-dialog/update-article-dialog.component';
+import {Articleview} from '../../entities/articleview';
+import {formatNumber} from '@angular/common';
 
 
 @Component({
@@ -14,8 +16,8 @@ import {UpdateArticleDialogComponent} from "../update-article-dialog/update-arti
 
 export class ListArticlesComponent implements OnInit {
 
-  public articles = [];
-  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'update', 'delete', 'addCard'];
+  public articles: Articleview[] = [];
+  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'card count', 'update', 'delete', 'addCard'];
 
 
   constructor(
@@ -26,7 +28,7 @@ export class ListArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getArticles();
+    this.getArticlesView();
   }
 
   getArticles() {
@@ -38,11 +40,20 @@ export class ListArticlesComponent implements OnInit {
     );
   }
 
-   editArticle(article: Article): void {
+  getArticlesView() {
+    this.articlesService.getAllArticlesView().subscribe(
+      res => {
+        console.log(res);
+        this.articles = res;
+      }
+    );
+  }
+
+  editArticle(article: Article): void {
     const dialogRef = this.dialog.open(UpdateArticleDialogComponent, {
-     width: '600px',
-     data: article
-     });
+      width: '600px',
+      data: article
+    });
 
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
   }
@@ -56,7 +67,17 @@ export class ListArticlesComponent implements OnInit {
   addCard(article: Article) {
     this.router.navigateByUrl('stockitems/create/' + article.id);
   }
+
   onBack(): void {
     this.router.navigate(['/Home']);
   }
+
+  getClassByQuantity(quantity: number): string {
+    if (quantity == 0) {
+      return 'red';
+    }
+    return 'green';
+
+  }
+
 }
