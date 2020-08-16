@@ -17,7 +17,13 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(catchError(err => {
       if (err.status === 401 || err.status === 403) {
         this.authService.logout();
-        this.router.navigateByUrl('users/login').then();
+        if (
+          !(this.router.isActive('users/resetpassword', false)
+            ||
+            this.router.isActive('/users/password/reset', false))
+        ) {
+          this.router.navigateByUrl('users/login').then();
+        }
       }
 
       return throwError('error from http request');
