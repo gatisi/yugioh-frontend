@@ -43,7 +43,6 @@ export class ListArticlesComponent implements OnInit {
   getArticlesView() {
     this.articlesService.getAllArticlesView().subscribe(
       res => {
-        console.log(res);
         this.articles = res;
       }
     );
@@ -78,6 +77,10 @@ export class ListArticlesComponent implements OnInit {
     }
     return 'green';
 
+  }
+
+  goToStockItemsList(id) {
+    this.router.navigateByUrl('stockitems/list/id/' + id + '/searchBy/article');
   }
 
 }

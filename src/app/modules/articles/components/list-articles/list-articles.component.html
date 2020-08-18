@@ -9,17 +9,17 @@
 <table [dataSource]="articles" class="mat-elevation-z8" mat-table>
   <ng-container matColumnDef="id">
     <th *matHeaderCellDef mat-header-cell> ID</th>
-    <td *matCellDef="let article" mat-cell> {{article.id}} </td>
+    <td *matCellDef="let article" mat-cell (click)="goToStockItemsList(article.id)"> {{article.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="booster set">
     <th *matHeaderCellDef mat-header-cell> Booster set</th>
-    <td *matCellDef="let article" mat-cell> {{article.boosterSet}} </td>
+    <td *matCellDef="let article" mat-cell (click)="goToStockItemsList(article.id)"> {{article.boosterSet}} </td>
   </ng-container>
 
   <ng-container matColumnDef="card name">
     <th *matHeaderCellDef mat-header-cell> Card name</th>
-    <td *matCellDef="let article" mat-cell> {{article.cardName}} </td>
+    <td *matCellDef="let article" mat-cell (click)="goToStockItemsList(article.id)"> {{article.cardName}} </td>
   </ng-container>
 
   <ng-container matColumnDef="edition">

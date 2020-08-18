@@ -67,11 +67,9 @@ export class ListStockItemsComponent implements OnInit {
         this.stockItems = res;
         this.route.params.subscribe(params => {
           if (params.field && params.id) {
-            this.stockItems = this.filterByFields(params.id, this.stockItems, 'storage');
+            this.stockItems = this.filterByFields(params.id, this.stockItems, params.field);
 
           }
-          console.log(this.stockItems);
-
         });
       }
     );
@@ -108,6 +106,7 @@ export class ListStockItemsComponent implements OnInit {
         break;
 
       case "article":
+        console.log('ir');
         return stockItems.filter(
           stockItem => stockItem.article.id == id
         );
