@@ -16,7 +16,6 @@ export class ConfirmationDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   openConfirmationDialog() {
     // @ts-ignore
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -30,4 +29,5 @@ export class ConfirmationDialogComponent implements OnInit {
       this.dialogRef = null;
     });
   }
+  
 }
