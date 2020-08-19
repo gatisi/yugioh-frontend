@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {UpdateArticleDialogComponent} from '../update-article-dialog/update-article-dialog.component';
 import {Articleview} from '../../entities/articleview';
 import {formatNumber} from '@angular/common';
+import {ConfirmationDialogComponent} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 
 
 @Component({
@@ -59,12 +60,19 @@ export class ListArticlesComponent implements OnInit {
   }
 
   deleteArticle(article: Article): void {
-    this.articlesService.deleteArticle(article).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.articlesService.deleteArticle(article).subscribe(
+            res => this.ngOnInit()
+          );
+        }
+      }
     );
   }
 
-  addCard(article: Article) {
+addCard(article: Article) {
     this.router.navigateByUrl('stockitems/create/' + article.id);
   }
 

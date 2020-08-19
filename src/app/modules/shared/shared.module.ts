@@ -21,12 +21,11 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { HeaderComponent } from './components/header/header.component';
 import {RouterModule} from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-
-
+import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
-  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent, FooterComponent],
+  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent, FooterComponent, ConfirmationDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -45,6 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDividerModule,
     MatCardModule,
     RouterModule,
+
 
 
   ],
@@ -68,10 +68,12 @@ import { FooterComponent } from './components/footer/footer.component';
     LogoutComponent,
     HeaderComponent,
     FooterComponent,
+    ConfirmationDialogComponent,
   ],
   providers: [
     AuthService,
     SecureHttpClientService,
-  ]
+  ],
+  entryComponents: [ConfirmationDialogComponent]
 })
 export class SharedModule { }

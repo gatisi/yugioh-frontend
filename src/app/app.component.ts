@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {ConfirmationDialogComponent} from "./modules/shared/components/confirmation-dialog/confirmation-dialog.component";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +11,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'yugioh';
-  constructor(private router: Router) {
+  dialogRef: MatDialogRef <ConfirmationDialogComponent>;
+  constructor(private router: Router,
+              public dialog: MatDialog) {
   }
   navigateToHome() {
     this.router.navigateByUrl('/');
@@ -22,5 +28,3 @@ export class AppComponent {
     this.router.navigateByUrl('/users/logout').then();
   }
 }
-
-

@@ -4,6 +4,7 @@ import {Role} from '../../entities/role';
 import {UpdateRoleDialogComponent} from '../update-role-dialog/update-role-dialog.component';
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from '@angular/router';
+import {ConfirmationDialogComponent} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-list-roles',
@@ -41,8 +42,16 @@ export class ListRolesComponent implements OnInit {
   }
 
   deleteRole(role: Role): void {
-    this.usersService.deleteRole(role).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.usersService.deleteRole(role).subscribe(
+          res => this.ngOnInit()
+        );
+      }
+      }
     );
   }
+
 }

@@ -14,6 +14,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './modules/users/components/login/login.component';
 import {TestModule} from './modules/test/test.module';
 import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
+import {ConfirmationDialogComponent} from './modules/shared/components/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -21,7 +22,7 @@ import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +40,7 @@ import {HttpErrorInterceptor} from './modules/shared/http-error.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {AddStockItemToSoldStorageDialogComponent} from '../add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {ConfirmationDialogComponent} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-list-stock-items',
@@ -47,11 +48,18 @@ export class ListStockItemsComponent implements OnInit {
 
 
   deleteStockItem(stockItem: StockItem): void {
-    this.stockItemsService.deleteStockItem(stockItem).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.stockItemsService.deleteStockItem(stockItem).subscribe(
+            res => this.ngOnInit()
+          );
+        }
+      }
     );
-
   }
+
 
   editStockItem(stockItem: StockItem): void {
     const dialogRef = this.dialog.open(UpdateStockItemDialogComponent, {
