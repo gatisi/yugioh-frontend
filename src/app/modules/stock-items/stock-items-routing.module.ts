@@ -17,6 +17,12 @@ const routes: Routes = [
         path: 'list',
         component: ListStockItemsComponent
       },
+      {
+        path: 'list/id/:id/searchBy/:field',
+        component: ListStockItemsComponent
+      },
+
+
       // {
       //   path: 'edit/:stockItemId',
       //   component: UpdateStockItemDialogComponent

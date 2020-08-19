@@ -1,95 +1,108 @@
 <mat-toolbar>
   <span>Stock Items List</span>
   <span class="fill-space"></span>
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
   <button mat-button routerLink="/articles/list">Add Stock Item</button>
 </mat-toolbar>
 
-<table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
-  <ng-container matColumnDef="id">
-    <th *matHeaderCellDef mat-header-cell> ID</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.id}} </td>
-  </ng-container>
+<div>
 
-  <ng-container matColumnDef="card condition" >
-    <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Condition</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardCondition}} </td>
-  </ng-container>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator><br>
 
-  <ng-container matColumnDef="card value">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Value</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValue}} </td>
-  </ng-container>
+  <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.id}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="card value when sold">
-    <th *matHeaderCellDef mat-header-cell> Card Value When Sold</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValueWhenSold}} </td>
-  </ng-container>
+    <ng-container matColumnDef="cardCondition">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Condition</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardCondition}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="in shop">
-    <th *matHeaderCellDef mat-header-cell> Listed In Shop</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.inShop}} </td>
-  </ng-container>
+    <ng-container matColumnDef="cardValue">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Value</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValue}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="comments">
-    <th *matHeaderCellDef mat-header-cell> Comments</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.comments}} </td>
-  </ng-container>
+    <ng-container matColumnDef="cardValueWhenSold">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Value When Sold</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValueWhenSold}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="booster set">
-    <th *matHeaderCellDef mat-header-cell> Booster Set</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.boosterSet}} </td>
-  </ng-container>
+    <ng-container matColumnDef="inShop">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Listed In Shop</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.inShop}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="card name">
-    <th *matHeaderCellDef mat-header-cell> Card Name</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardName}} </td>
-  </ng-container>
+    <ng-container matColumnDef="comments">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Comments</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.comments}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="edition">
-    <th *matHeaderCellDef mat-header-cell> Edition</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.edition}} </td>
-  </ng-container>
+    <ng-container matColumnDef="boosterSet">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Booster Set</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.boosterSet}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="rarity">
-    <th *matHeaderCellDef mat-header-cell> Rarity</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.rarity}} </td>
-  </ng-container>
+    <ng-container matColumnDef="cardName">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Name</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardName}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="card type">
-    <th *matHeaderCellDef mat-header-cell> Card Type</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
-  </ng-container>
+    <ng-container matColumnDef="edition">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Edition</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.edition}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="storage">
-    <th *matHeaderCellDef mat-header-cell>Storage</th>
-    <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardStorage.storageName}} </td>
-  </ng-container>
+    <ng-container matColumnDef="rarity">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Rarity</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.rarity}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="update">
-    <th *matHeaderCellDef mat-header-cell> Update Stock Item</th>
-    <td *matCellDef="let stockItem" mat-cell>
-      <button (click)="editStockItem(stockItem)" mat-raised-button>Update</button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="cardType">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Type</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="add to sold">
-    <th *matHeaderCellDef mat-header-cell> Add To Sold</th>
-    <td *matCellDef="let stockItem" mat-cell>
-      <button (click)="addToSold(stockItem)" color="accent" mat-raised-button>Add To Sold</button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="storageName">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Storage</th>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardStorage.storageName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th *matHeaderCellDef mat-header-cell> Update Stock Item</th>
+      <td *matCellDef="let stockItem" mat-cell >
+        <button (click)="editStockItem(stockItem)" mat-raised-button>Update</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="addToSold">
+      <th *matHeaderCellDef mat-header-cell> Add To Sold</th>
+      <td *matCellDef="let stockItem" mat-cell>
+        <button (click)="addToSold(stockItem)" color="accent" mat-raised-button>Add To Sold</button>
+      </td>
+    </ng-container>
 
 
-  <ng-container matColumnDef="delete">
-    <th *matHeaderCellDef mat-header-cell> Delete Stock Item</th>
-    <td *matCellDef="let stockItem" mat-cell>
-      <button (click)="deleteStockItem(stockItem)" color="warn" mat-raised-button>Delete</button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="delete">
+      <th *matHeaderCellDef mat-header-cell> Delete Stock Item</th>
+      <td *matCellDef="let stockItem" mat-cell>
+        <button (click)="deleteStockItem(stockItem)" color="warn" mat-raised-button>Delete</button>
+      </td>
+    </ng-container>
 
-  <tr *matHeaderRowDef="displayedColumnsStockItems" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: displayedColumnsStockItems;" mat-row></tr>
+    <tr *matHeaderRowDef="displayedColumnsStockItems" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumnsStockItems;" mat-row></tr>
 
-<!--  <tr *matHeaderRowDef="displayedColumnsArticles" mat-header-row></tr>-->
-<!--  <tr *matRowDef="let row; columns: displayedColumnsArticles;" mat-row></tr>-->
-</table>
+
+  </table>
+
+
+
+</div>

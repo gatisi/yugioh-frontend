@@ -9,14 +9,19 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {SharedModule} from '../shared/shared.module';
 import { UpdateArticleDialogComponent } from './components/update-article-dialog/update-article-dialog.component';
 import {CreateUserComponent} from "../users/components/create-user/create-user.component";
+import {MatSortModule} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { MaterialExampleComponent } from './components/material-example/material-example.component';
 
 
 @NgModule({
-  declarations: [CreateArticleComponent, ListArticlesComponent, UpdateArticleDialogComponent],
+  declarations: [CreateArticleComponent, ListArticlesComponent, UpdateArticleDialogComponent, MaterialExampleComponent],
   imports: [
     CommonModule,
     ArticlesRoutingModule,
     SharedModule,
+    MatSortModule,
+    MatPaginatorModule,
   ]
 })
 export class ArticlesModule { }

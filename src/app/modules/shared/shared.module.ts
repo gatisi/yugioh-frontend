@@ -1,25 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import { MatSliderModule } from '@angular/material/slider';
+import {MatSliderModule} from '@angular/material/slider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {AuthService} from './auth.service';
 import {SecureHttpClientService} from './secure-http-client.service';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
+import {MatTable, MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
-import { MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {HttpErrorInterceptor} from './http-error.interceptor';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { HeaderComponent } from './components/header/header.component';
+import {WelcomeComponent} from './components/welcome/welcome.component';
+import {LogoutComponent} from './components/logout/logout.component';
+import {HeaderComponent} from './components/header/header.component';
 import {RouterModule} from '@angular/router';
+import {FooterComponent} from './components/footer/footer.component';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { FooterComponent } from './components/footer/footer.component';
 import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 
@@ -44,7 +48,8 @@ import {ConfirmationDialogComponent} from './components/confirmation-dialog/conf
     MatDividerModule,
     MatCardModule,
     RouterModule,
-
+    MatPaginatorModule,
+    MatSortModule,
 
 
   ],
@@ -68,6 +73,8 @@ import {ConfirmationDialogComponent} from './components/confirmation-dialog/conf
     LogoutComponent,
     HeaderComponent,
     FooterComponent,
+    MatPaginatorModule,
+    MatSortModule,
     ConfirmationDialogComponent,
   ],
   providers: [
@@ -76,4 +83,5 @@ import {ConfirmationDialogComponent} from './components/confirmation-dialog/conf
   ],
   entryComponents: [ConfirmationDialogComponent]
 })
-export class SharedModule { }
+export class SharedModule {
+}
