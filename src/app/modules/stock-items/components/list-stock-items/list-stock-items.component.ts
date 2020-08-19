@@ -20,7 +20,7 @@ import {MatPaginator} from "@angular/material/paginator";
 export class ListStockItemsComponent implements OnInit {
   public stockItems = [];
   public cardStorages = [];
-  displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'storage', 'update', 'add to sold', 'delete'];
+  displayedColumnsStockItems: string[] = ['id', 'cardCondition', 'cardValue', 'cardValueWhenSold', 'inShop', 'comments', 'boosterSet', 'cardName', 'edition', 'rarity', 'cardType', 'storageName', 'update', 'addToSold', 'delete'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   dataSource: MatTableDataSource<StockItem>;

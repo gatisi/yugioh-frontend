@@ -14,28 +14,28 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator><br>
 
-  <table [dataSource]="stockItems" class="mat-elevation-z8" mat-table matSort>
+  <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
     <ng-container matColumnDef="id">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.id}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="card condition">
+    <ng-container matColumnDef="cardCondition">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Condition</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardCondition}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="card value">
+    <ng-container matColumnDef="cardValue">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Value</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValue}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="card value when sold">
+    <ng-container matColumnDef="cardValueWhenSold">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Value When Sold</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardValueWhenSold}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="in shop">
+    <ng-container matColumnDef="inShop">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Listed In Shop</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.inShop}} </td>
     </ng-container>
@@ -45,12 +45,12 @@
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.comments}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="booster set">
+    <ng-container matColumnDef="boosterSet">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Booster Set</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.boosterSet}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="card name">
+    <ng-container matColumnDef="cardName">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Name</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardName}} </td>
     </ng-container>
@@ -65,12 +65,12 @@
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.rarity}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="card type">
+    <ng-container matColumnDef="cardType">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Type</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="storage">
+    <ng-container matColumnDef="storageName">
       <th *matHeaderCellDef mat-header-cell mat-sort-header>Storage</th>
       <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardStorage.storageName}} </td>
     </ng-container>
@@ -82,7 +82,7 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="add to sold">
+    <ng-container matColumnDef="addToSold">
       <th *matHeaderCellDef mat-header-cell> Add To Sold</th>
       <td *matCellDef="let stockItem" mat-cell>
         <button (click)="addToSold(stockItem)" color="accent" mat-raised-button>Add To Sold</button>
