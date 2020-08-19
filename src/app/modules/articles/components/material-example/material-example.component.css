@@ -1,8 +1,5 @@
-table{
+table {
   width: 100%;
-}
-.fill-space {
-  flex: 1 1 auto;
 }
 
 .mat-form-field {
@@ -12,8 +9,4 @@ table{
 
 td, th {
   width: 25%;
-}
-
-span {
-  margin-right: 10px;
 }

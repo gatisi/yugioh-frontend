@@ -1,15 +1,19 @@
-<p>list-articles works!</p>
+
 <mat-toolbar>
   <span>Article List</span>
   <span class="fill-space"></span>
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
   <button mat-button routerLink="/articles/create">Add Article</button>
+
 
 </mat-toolbar>
 
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-</mat-form-field>
+
 
 <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
   <ng-container matColumnDef="id">
