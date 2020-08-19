@@ -5,6 +5,7 @@ import {CardStorage} from "../../entities/card-storage";
 import {UpdateUserDialogComponent} from "../../../users/components/update-user-dialog/update-user-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateCardStorageDialogComponent} from "../update-card-storage-dialog/update-card-storage-dialog.component";
+import {ConfirmationDialogComponent} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 import {Route, Router} from "@angular/router";
 
 @Component({
@@ -36,8 +37,15 @@ export class ListCardStoragesComponent implements OnInit {
   }
 
   deleteCardStorage(cardStorage: CardStorage): void {
-    this.cardStorageService.deleteCardStorage(cardStorage).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.cardStorageService.deleteCardStorage(cardStorage).subscribe(
+            res => this.ngOnInit()
+          );
+        }
+      }
     );
   }
 

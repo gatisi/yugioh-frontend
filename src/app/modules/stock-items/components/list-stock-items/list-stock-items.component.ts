@@ -8,6 +8,7 @@ import {AddStockItemToSoldStorageDialogComponent} from "../add-stock-item-to-sol
 import {UpdateStockItemDialogComponent} from '../update-stock-item-dialog/update-stock-item-dialog.component';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {ConfirmationDialogComponent} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 import {EnumsService} from "../../../shared/enums.service";
 import {CardStorage} from "../../../card-storage/entities/card-storage";
 import {MatPaginator} from "@angular/material/paginator";
@@ -77,8 +78,15 @@ export class ListStockItemsComponent implements OnInit {
   }
 
   deleteStockItem(stockItem: StockItem): void {
-    this.stockItemsService.deleteStockItem(stockItem).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.stockItemsService.deleteStockItem(stockItem).subscribe(
+            res => this.ngOnInit()
+          );
+        }
+      }
     );
 
   }

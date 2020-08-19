@@ -3,6 +3,7 @@ import {UsersService} from '../../services/users.service';
 import {MatDialog} from '@angular/material/dialog';
 import {UpdateUserDialogComponent} from '../update-user-dialog/update-user-dialog.component';
 import {User} from '../../entities/user';
+import {ConfirmationDialogComponent} from "../../../shared/components/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-list-users',
@@ -42,8 +43,15 @@ export class ListUsersComponent implements OnInit {
   }
 
   deleteUser(user: User): void {
-    this.usersService.deleteUser(user).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.usersService.deleteUser(user).subscribe(
+            res => this.ngOnInit()
+          );
+        }
+      }
     );
   }
 
