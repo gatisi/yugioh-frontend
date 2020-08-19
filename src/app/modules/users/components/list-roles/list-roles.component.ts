@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {UsersService} from '../../services/users.service';
 import {Role} from '../../entities/role';
 import {UpdateRoleDialogComponent} from '../update-role-dialog/update-role-dialog.component';
@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {UserData} from "../../../articles/components/material-example/material-example.component";
+import {MatSort} from "@angular/material/sort";
 
 // @ts-ignore
 @Component({
@@ -17,6 +18,7 @@ export class ListRolesComponent implements OnInit {
   public roles = [];
   displayedColumns: string[] = ['id', 'roleName', 'update', 'delete'];
   dataSource: MatTableDataSource<Role>;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
     private usersService: UsersService,
@@ -35,6 +37,7 @@ export class ListRolesComponent implements OnInit {
       res => {
         this.roles = res;
         this.dataSource = new MatTableDataSource(res);
+        this.dataSource.sort = this.sort;
       }
     );
   }
