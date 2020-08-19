@@ -4,41 +4,37 @@
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Booster Set</mat-label>
-      <input [readonly]="true" matInput type="text" value="{{stockItem.article.boosterSet}}">
+      <input [readonly]="true" matInput type="text" value="{{stockItem.boosterSet}}">
     </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Card Name</mat-label>
-      <input [readonly]="true" matInput type="text" value="{{stockItem.article.cardName}}">
+      <input [readonly]="true" matInput type="text" value="{{stockItem.cardName}}">
     </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Card Type</mat-label>
-      <input [readonly]="true" matInput type="text" value="{{stockItem.article.cardType}}">
+      <input [readonly]="true" matInput type="text" value="{{stockItem.cardType}}">
     </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Edition</mat-label>
-      <input [readonly]="true" matInput type="text" value="{{stockItem.article.edition}}">
+      <input [readonly]="true" matInput type="text" value="{{stockItem.edition}}">
     </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Rarity</mat-label>
-      <input [readonly]="true" matInput type="text" value="{{stockItem.article.rarity}}">
+      <input [readonly]="true" matInput type="text" value="{{stockItem.rarity}}">
     </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill">
       <mat-label>Card Type</mat-label>
-      <mat-select [(ngModel)]="stockItem.article.cardType">
-        <mat-option *ngFor="let type of cardType" [value]="type">
-          {{type}}
-        </mat-option>
-      </mat-select>
+      <input [readonly]="true" matInput type="text" value="{{stockItem.cardType}}">
     </mat-form-field>
     <br>
 

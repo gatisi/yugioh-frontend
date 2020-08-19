@@ -25,6 +25,9 @@ export class StockItemsService {
   getAllStockItems(): Observable<any> {
     return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/all');
   }
+  getAllStockItemsV(): Observable<any> {
+    return this.secureHttpClientService.get('http://localhost:8080/stockitemview/all');
+  }
 
   getStockItemById(id) {
     return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/id/1');

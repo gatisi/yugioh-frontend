@@ -1,17 +1,15 @@
 <mat-toolbar>
   <span>Stock Items List</span>
   <span class="fill-space"></span>
-
-  <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
-
   <button mat-button routerLink="/articles/list">Add Stock Item</button>
 </mat-toolbar>
 
-<div>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
 
+<div>
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator><br>
 
   <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
@@ -47,32 +45,32 @@
 
     <ng-container matColumnDef="boosterSet">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Booster Set</th>
-      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.boosterSet}} </td>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.boosterSet}} </td>
     </ng-container>
 
     <ng-container matColumnDef="cardName">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Name</th>
-      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardName}} </td>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edition">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Edition</th>
-      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.edition}} </td>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.edition}} </td>
     </ng-container>
 
     <ng-container matColumnDef="rarity">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Rarity</th>
-      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.rarity}} </td>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.rarity}} </td>
     </ng-container>
 
     <ng-container matColumnDef="cardType">
       <th *matHeaderCellDef mat-header-cell mat-sort-header> Card Type</th>
-      <td *matCellDef="let stockItem" mat-cell> {{stockItem.article.cardType}} </td>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardType}} </td>
     </ng-container>
 
     <ng-container matColumnDef="storage">
       <th *matHeaderCellDef mat-header-cell mat-sort-header>Storage</th>
-      <td *matCellDef="let stockItem" mat-cell> {{stockItem.cardStorage.storageName}} </td>
+      <td *matCellDef="let stockItem" mat-cell> {{stockItem.storageName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="update">
@@ -103,6 +101,5 @@
 
   </table>
 
-
-
 </div>
+

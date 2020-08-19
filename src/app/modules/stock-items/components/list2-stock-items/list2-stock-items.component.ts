@@ -1,29 +1,30 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {StockItem} from "../../entities/stock-item";
-import {StockItemsService} from "../../services/stock-items.service";
-import {ArticlesService} from "../../../articles/services/articles.service";
-import {MatDialog} from "@angular/material/dialog";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AddStockItemToSoldStorageDialogComponent} from "../add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component";
-import {UpdateStockItemDialogComponent} from '../update-stock-item-dialog/update-stock-item-dialog.component';
 import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {EnumsService} from "../../../shared/enums.service";
-import {CardStorage} from "../../../card-storage/entities/card-storage";
-import {MatPaginator} from "@angular/material/paginator";
+import {StockItem} from '../../entities/stock-item';
+import {StockItemsService} from '../../services/stock-items.service';
+import {ArticlesService} from '../../../articles/services/articles.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ActivatedRoute, Router} from '@angular/router';
+import {EnumsService} from '../../../shared/enums.service';
+import {AddStockItemToSoldStorageDialogComponent} from '../add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
+import {UpdateStockItemDialogComponent} from '../update-stock-item-dialog/update-stock-item-dialog.component';
+import {StockItemV} from '../../entities/stock-item-v';
 
 @Component({
-  selector: 'app-list-stock-items',
-  templateUrl: './list-stock-items.component.html',
-  styleUrls: ['./list-stock-items.component.css']
+  selector: 'app-list2-stock-items',
+  templateUrl: './list2-stock-items.component.html',
+  styleUrls: ['./list2-stock-items.component.css']
 })
-export class ListStockItemsComponent implements OnInit {
+export class List2StockItemsComponent implements OnInit {
   public stockItems = [];
+  public stockItemsV = [];
   public cardStorages = [];
   displayedColumnsStockItems: string[] = ['id', 'cardCondition', 'cardValue', 'cardValueWhenSold', 'inShop', 'comments', 'boosterSet', 'cardName', 'edition', 'rarity', 'cardType', 'storage', 'update', 'addToSold', 'delete'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  dataSource: MatTableDataSource<StockItem>;
+  dataSource: MatTableDataSource<StockItemV>;
 
 
   constructor(
@@ -61,15 +62,15 @@ export class ListStockItemsComponent implements OnInit {
   }
 
   getStockItems() {
-    this.stockItemsService.getAllStockItems().subscribe(
+    this.stockItemsService.getAllStockItemsV().subscribe(
       res => {
-        this.stockItems = res;
-        this.route.params.subscribe(params => {
-          if (params.field && params.id) {
-            this.stockItems = this.filterByFields(params.id, this.stockItems, params.field);
-          }
-        });
-        this.dataSource = new MatTableDataSource(this.stockItems);
+        this.stockItemsV = res;
+            this.route.params.subscribe(params => {
+              if (params.field && params.id) {
+                this.stockItemsV = this.filterByFields(params.id, this.stockItemsV, params.field);
+              }
+            });
+        this.dataSource = new MatTableDataSource(this.stockItemsV);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
@@ -92,18 +93,18 @@ export class ListStockItemsComponent implements OnInit {
   }
 
 
-  filterByFields(id, stockItems: StockItem[], filterBy: String) {
+  filterByFields(id, stockItems: StockItemV[], filterBy: String) {
     switch (filterBy) {
       case "storage":
         return stockItems.filter(
-          stockItem => stockItem.cardStorage.id == id
+          stockItem => stockItem.storageId == id
         );
         break;
 
       case "article":
         console.log('ir');
         return stockItems.filter(
-          stockItem => stockItem.article.id == id
+          stockItem => stockItem.articleId == id
         );
         break;
     }
@@ -119,4 +120,3 @@ export class ListStockItemsComponent implements OnInit {
   }
 
 }
-
