@@ -46,8 +46,8 @@ export class ListStockItemsComponent implements OnInit {
     this.enumsService.getCardStorages().subscribe(
       res => {
         this.cardStorages = res;
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
+        // this.dataSource = new MatTableDataSource(res);
+        // this.dataSource.paginator = this.paginator;
       }
     );
   }
