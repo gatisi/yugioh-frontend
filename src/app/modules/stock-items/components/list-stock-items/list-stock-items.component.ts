@@ -9,6 +9,8 @@ import {UpdateStockItemDialogComponent} from '../update-stock-item-dialog/update
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {EnumsService} from "../../../shared/enums.service";
+import {CardStorage} from "../../../card-storage/entities/card-storage";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-list-stock-items',
@@ -20,6 +22,7 @@ export class ListStockItemsComponent implements OnInit {
   public cardStorages = [];
   displayedColumnsStockItems: string[] = ['id', 'card condition', 'card value', 'card value when sold', 'in shop', 'comments', 'booster set', 'card name', 'edition', 'rarity', 'card type', 'storage', 'update', 'add to sold', 'delete'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   dataSource: MatTableDataSource<StockItem>;
 
 
@@ -43,7 +46,8 @@ export class ListStockItemsComponent implements OnInit {
     this.enumsService.getCardStorages().subscribe(
       res => {
         this.cardStorages = res;
-        console.log(res);
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }
@@ -68,6 +72,8 @@ export class ListStockItemsComponent implements OnInit {
         this.route.params.subscribe(params => {
           if (params.field && params.id) {
             this.stockItems = this.filterByFields(params.id, this.stockItems, params.field);
+            this.dataSource = new MatTableDataSource(res);
+            this.dataSource.paginator = this.paginator;
 
           }
         });
@@ -75,7 +81,6 @@ export class ListStockItemsComponent implements OnInit {
     );
 
   }
-
 
 
   deleteStockItem(stockItem: StockItem): void {
@@ -93,7 +98,6 @@ export class ListStockItemsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
 
   }
-
 
 
   filterByFields(id, stockItems: StockItem[], filterBy: String) {
