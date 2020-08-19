@@ -24,7 +24,6 @@ import {FooterComponent} from './components/footer/footer.component';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { FooterComponent } from './components/footer/footer.component';
 import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 
 
