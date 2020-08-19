@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {MatTableDataSource} from "@angular/material/table";
 import {UserData} from "../../../articles/components/material-example/material-example.component";
 import {MatSort} from "@angular/material/sort";
+import {MatPaginator} from "@angular/material/paginator";
 
 // @ts-ignore
 @Component({
@@ -18,6 +19,7 @@ export class ListRolesComponent implements OnInit {
   public roles = [];
   displayedColumns: string[] = ['id', 'roleName', 'update', 'delete'];
   dataSource: MatTableDataSource<Role>;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
@@ -38,6 +40,7 @@ export class ListRolesComponent implements OnInit {
         this.roles = res;
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       }
     );
   }

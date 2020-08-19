@@ -2,7 +2,7 @@
   <span>Role List</span>
   <span class="fill-space"></span>
 
-  <mat-form-field >
+  <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
@@ -11,37 +11,39 @@
 </mat-toolbar>
 
 <div>
-<table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
-  <ng-container matColumnDef="id">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
-    <td *matCellDef="let roles" mat-cell> {{roles.id}} </td>
-  </ng-container>
+  <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
+      <td *matCellDef="let roles" mat-cell> {{roles.id}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="roleName">
-    <th *matHeaderCellDef mat-header-cell mat-sort-header> Role name</th>
-    <td *matCellDef="let roles" mat-cell> {{roles.role}} </td>
-  </ng-container>
+    <ng-container matColumnDef="roleName">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header> Role name</th>
+      <td *matCellDef="let roles" mat-cell> {{roles.role}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="update">
-    <th *matHeaderCellDef mat-header-cell > Update Role</th>
-    <td *matCellDef="let roles" mat-cell>
-      <button (click)="editRole(roles)" mat-raised-button>Update</button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="update">
+      <th *matHeaderCellDef mat-header-cell> Update Role</th>
+      <td *matCellDef="let roles" mat-cell>
+        <button (click)="editRole(roles)" mat-raised-button>Update</button>
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="delete">
-    <th *matHeaderCellDef mat-header-cell > Delete Role</th>
-    <td *matCellDef="let roles" mat-cell>
-      <button (click)="deleteRole(roles)" color="warn" mat-raised-button>Delete</button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="delete">
+      <th *matHeaderCellDef mat-header-cell> Delete Role</th>
+      <td *matCellDef="let roles" mat-cell>
+        <button (click)="deleteRole(roles)" color="warn" mat-raised-button>Delete</button>
+      </td>
+    </ng-container>
 
-  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
 
-  <tr class="mat-row" *matNoDataRow>
-    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-  </tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
 
-</table>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
