@@ -19,10 +19,9 @@ import {ConfirmationDialogComponent} from "../../../shared/components/confirmati
 })
 
 export class ListArticlesComponent implements OnInit {
-
-  public articles: Articleview[] = [];
-  displayedColumns: string[] = ['id', 'booster set', 'card name', 'rarity', 'edition', 'card type', 'card count', 'update', 'delete', 'addCard'];
+  displayedColumns: string[] = ['id', 'cardName', 'boosterSet', 'rarity', 'edition', 'cardType', 'cardCount', 'update', 'delete', 'addCard'];
   dataSource: MatTableDataSource<Articleview>;
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -34,23 +33,22 @@ export class ListArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.getArticlesView();
   }
 
-  getArticles() {
-    this.articlesService.getAllArticles().subscribe(
-      res => {
-        console.log(res);
-        this.articles = res;
-      }
-    );
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   getArticlesView() {
     this.articlesService.getAllArticlesView().subscribe(
       res => {
-        console.log(res);
-        this.articles = res;
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -72,7 +70,6 @@ export class ListArticlesComponent implements OnInit {
       width: '600px',
       data: article
     });
-
     dialogRef.afterClosed().subscribe(result => this.ngOnInit());
   }
 

@@ -11,9 +11,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {UpdateStockItemDialogComponent} from './components/update-stock-item-dialog/update-stock-item-dialog.component';
 import { AddStockItemToSoldStorageDialogComponent } from './components/add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
 import {MatSortModule} from '@angular/material/sort';
+import { List2StockItemsComponent } from './components/list2-stock-items/list2-stock-items.component';
 
 @NgModule({
-  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent, AddStockItemToSoldStorageDialogComponent],
+  declarations: [CreateStockItemComponent, ListStockItemsComponent, UpdateStockItemDialogComponent, AddStockItemToSoldStorageDialogComponent, List2StockItemsComponent],
     imports: [
         CommonModule,
         StockItemsRoutingModule,
