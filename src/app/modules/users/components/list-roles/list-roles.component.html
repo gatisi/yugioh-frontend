@@ -4,34 +4,36 @@
 
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ROLE_CAT" #input>
   </mat-form-field>
 
   <button mat-button routerLink="/users/roles/create">Add Role</button>
 </mat-toolbar>
 
-<div>
-  <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource"  matSort>
     <ng-container matColumnDef="id">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> ID</th>
-      <td *matCellDef="let roles" mat-cell> {{roles.id}} </td>
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> ID</th>
+      <td mat-cell *matCellDef="let roles" > {{roles.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="roleName">
-      <th *matHeaderCellDef mat-header-cell mat-sort-header> Role name</th>
-      <td *matCellDef="let roles" mat-cell> {{roles.role}} </td>
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Role name</th>
+      <td mat-cell *matCellDef="let roles" > {{roles.role}} </td>
     </ng-container>
 
     <ng-container matColumnDef="update">
-      <th *matHeaderCellDef mat-header-cell> Update Role</th>
-      <td *matCellDef="let roles" mat-cell>
+      <th mat-header-cell *matHeaderCellDef > Update Role</th>
+      <td mat-cell *matCellDef="let roles" >
         <button (click)="editRole(roles)" mat-raised-button>Update</button>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th *matHeaderCellDef mat-header-cell> Delete Role</th>
-      <td *matCellDef="let roles" mat-cell>
+      <th mat-header-cell *matHeaderCellDef > Delete Role</th>
+      <td mat-cell *matCellDef="let roles" >
         <button (click)="deleteRole(roles)" color="warn" mat-raised-button>Delete</button>
       </td>
     </ng-container>
@@ -45,5 +47,4 @@
 
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

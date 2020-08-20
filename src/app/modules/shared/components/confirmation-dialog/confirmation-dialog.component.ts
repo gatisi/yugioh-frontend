@@ -21,7 +21,7 @@ export class ConfirmationDialogComponent implements OnInit {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       disableClose: false
     });
-    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
+    this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete this?"
 
     this.dialogRef.afterClosed().subscribe(result => {
       if (result) {

@@ -79,7 +79,7 @@ export class ListStockItemsComponent implements OnInit {
 
   deleteStockItem(stockItem: StockItem): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
-    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete this?";
     dialogRef.afterClosed().subscribe(result => {
         if(result){
           this.stockItemsService.deleteStockItem(stockItem).subscribe(
