@@ -11,6 +11,7 @@ import {EnumsService} from '../../../shared/enums.service';
 import {AddStockItemToSoldStorageDialogComponent} from '../add-stock-item-to-sold-storage-dialog/add-stock-item-to-sold-storage-dialog.component';
 import {UpdateStockItemDialogComponent} from '../update-stock-item-dialog/update-stock-item-dialog.component';
 import {StockItemV} from '../../entities/stock-item-v';
+import {ConfirmationDialogComponent} from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-list2-stock-items',
@@ -78,10 +79,16 @@ export class List2StockItemsComponent implements OnInit {
   }
 
   deleteStockItem(stockItem: StockItem): void {
-    this.stockItemsService.deleteStockItem(stockItem).subscribe(
-      res => this.ngOnInit()
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete this?";
+    dialogRef.afterClosed().subscribe(result => {
+        if(result){
+          this.stockItemsService.deleteStockItem(stockItem).subscribe(
+            res => this.ngOnInit()
+          );
+        }
+      }
     );
-
   }
 
   editStockItem(stockItem: StockItem): void {

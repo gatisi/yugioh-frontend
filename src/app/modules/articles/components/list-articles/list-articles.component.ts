@@ -56,7 +56,6 @@ export class ListArticlesComponent implements OnInit {
     );
   }
 
-
   editArticle(article: Article): void {
     const dialogRef = this.dialog.open(UpdateArticleDialogComponent, {
       width: '600px',
