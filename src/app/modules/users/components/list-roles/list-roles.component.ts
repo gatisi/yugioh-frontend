@@ -27,7 +27,6 @@ export class ListRolesComponent implements OnInit {
     private usersService: UsersService,
     private dialog: MatDialog,
     private router: Router,
-
   ) {
   }
 
@@ -35,13 +34,22 @@ export class ListRolesComponent implements OnInit {
     this.getRoles();
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
   getRoles() {
     this.usersService.getAllRoles().subscribe(
       res => {
         this.roles = res;
         this.dataSource = new MatTableDataSource(res);
-        this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     );
   }
@@ -57,22 +65,14 @@ export class ListRolesComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
     dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?";
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.usersService.deleteRole(role).subscribe(
-          res => this.ngOnInit()
-        );
-      }
+        if (result) {
+          this.usersService.deleteRole(role).subscribe(
+            res => this.ngOnInit()
+          );
+        }
       }
     );
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
 
 }

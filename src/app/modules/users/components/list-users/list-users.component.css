@@ -4,3 +4,16 @@ table{
 .fill-space {
 flex: 1 1 auto;
 }
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+span {
+  margin-right: 10px;
+}

@@ -56,14 +56,6 @@ export class ListArticlesComponent implements OnInit {
     );
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
 
   editArticle(article: Article): void {
     const dialogRef = this.dialog.open(UpdateArticleDialogComponent, {
