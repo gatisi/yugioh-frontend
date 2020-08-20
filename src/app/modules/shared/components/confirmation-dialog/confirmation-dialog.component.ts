@@ -29,5 +29,5 @@ export class ConfirmationDialogComponent implements OnInit {
       this.dialogRef = null;
     });
   }
-  
+
 }
