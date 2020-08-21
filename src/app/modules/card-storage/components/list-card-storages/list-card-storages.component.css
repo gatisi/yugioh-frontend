@@ -17,3 +17,7 @@ td, th {
 span {
   margin-right: 10px;
 }
+
+button{
+  alignment: right;
+}

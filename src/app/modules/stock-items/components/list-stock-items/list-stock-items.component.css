@@ -13,3 +13,7 @@ table{
 span {
   margin-right: 10px;
 }
+
+ mat-toolbar.button{
+  alignment: right;
+}

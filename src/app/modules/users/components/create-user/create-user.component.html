@@ -1,3 +1,4 @@
+<h2>Please fill in the fields below and click "Register"!</h2>
 <form [formGroup]="registrationForm">
 
   <div class="example-container">
@@ -21,7 +22,7 @@
       <input type="password" formControlName="password" matInput>
     </mat-form-field>
     <br>
-    <button mat-stroked-button color="primary" (click)="saveUser()">Register</button>
+    <button mat-button (click)="saveUser()">Register</button>
   </div>
 
 </form>

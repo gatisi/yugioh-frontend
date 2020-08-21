@@ -1,4 +1,6 @@
-<div class="stockItemForm" *ngIf="article">
+<h2>Add new card and click "Save"!</h2>
+<form [formGroup]="stockItemCreationForm">
+<div class="example-container" *ngIf="article">
   <mat-form-field appearance="fill">
     <mat-label>Booster Set</mat-label>
     <input type="text" matInput [readonly]="true" value="{{article.boosterSet}}">
@@ -19,10 +21,6 @@
     <mat-label>Rarity</mat-label>
     <input type="text" matInput [readonly]="true" value="{{article.rarity}}">
   </mat-form-field>
-</div>
-
-<form [formGroup]="stockItemCreationForm">
-  <div class="example-container">
 
 
     <mat-form-field appearance="fill">
