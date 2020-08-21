@@ -2,9 +2,9 @@
   <span>Role List</span>
   <span class="fill-space"></span>
 
-  <mat-form-field>
+  <mat-form-field class="form-filtering">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ROLE_CAT" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
   </mat-form-field>
 
   <button mat-button routerLink="/users/roles/create">Add Role</button>

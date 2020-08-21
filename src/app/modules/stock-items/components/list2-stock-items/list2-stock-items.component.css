@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+span {
+  margin-right: 10px;
+}

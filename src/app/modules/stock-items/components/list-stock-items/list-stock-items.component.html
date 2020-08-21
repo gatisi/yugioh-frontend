@@ -9,6 +9,15 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
 </mat-form-field>
 <div>
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <button mat-button routerLink="/articles/list">Add Stock Item</button>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator><br>
 
