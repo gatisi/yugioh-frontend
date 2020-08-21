@@ -39,6 +39,9 @@ export class List2StockItemsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.getUserInfo().role.role!='ROLE_ADMINISTRATOR'){
+      this.displayedColumnsStockItems = ['id', 'cardCondition', 'cardValue', 'cardValueWhenSold', 'inShop', 'comments', 'boosterSet', 'cardName', 'edition', 'rarity', 'cardType', 'storage'];
+    }
     this.getStockItems();
     this.getCardStorage();
   }
@@ -124,6 +127,10 @@ export class List2StockItemsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  getUserInfo(){
+    return JSON.parse(sessionStorage.getItem('yugioh.user.info'));
   }
 
 }
