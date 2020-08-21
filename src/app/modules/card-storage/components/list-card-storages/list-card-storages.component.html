@@ -1,13 +1,15 @@
 <mat-toolbar>
   <span>List of all Card Storages </span>
   <span class="fill-space"></span>
+
+  <mat-form-field class="form-filtering">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+
   <button mat-button routerLink="/cardstorage/create">Add Card Storage</button>
 </mat-toolbar>
 
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
-</mat-form-field>
 
 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 

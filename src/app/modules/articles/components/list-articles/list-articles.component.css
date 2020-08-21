@@ -7,7 +7,6 @@ table {
   flex: 1 1 auto;
 }
 
-
 td.red {
   color: red;
   font-weight: bold;
@@ -18,13 +17,6 @@ td.green {
   color: green;
 }
 
-
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
+span {
+  margin-right: 10px;
 }
-
-td, th {
-  width: 25%;
-}
-

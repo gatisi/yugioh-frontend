@@ -6,3 +6,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: auto;
   overflow: scroll;
 }
+
+.form-filtering{
+  font-size: 14px;
+  width: 100%;
+}
