@@ -6,4 +6,5 @@ export class Article {
   edition: string;
   rarity: string;
   cardType: string;
+  cardCount: number;
 }

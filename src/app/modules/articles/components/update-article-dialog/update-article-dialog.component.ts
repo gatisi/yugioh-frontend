@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {FormControl, FormGroup} from '@angular/forms';
 import {ArticlesService} from "../../services/articles.service";
 import {Article} from "../../entities/article";
 import {EnumsService} from "../../../shared/enums.service";
+import {Articleview} from "../../entities/articleview";
 
 @Component({
   selector: 'app-update-article-dialog',
@@ -20,14 +20,24 @@ export class UpdateArticleDialogComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public article: Article,
               private articlesService: ArticlesService,
               private enumsService: EnumsService
-  ) { }
+  ) {
+  }
 
 
   ngOnInit(): void {
     this.getEnums();
   }
+
+  // saveArticle() {
+  //   this.articlesService.updateArticle(this.article).subscribe(
+  //     res => this.dialogRef.close()
+  //   );
+  // }
+
   saveArticle() {
-    this.articlesService.updateArticle(this.article).subscribe(
+    this.articlesService.updateArticle(
+      this.getCountFromV(this.article)
+    ).subscribe(
       res => this.dialogRef.close()
     );
   }
@@ -43,9 +53,21 @@ export class UpdateArticleDialogComponent implements OnInit {
       res => this.edition = res
     );
   }
+
   close(): void {
     this.dialogRef.close();
   }
 
+  private getCountFromV(cv: Articleview) {
+    const article = new Article();
+    article.id = cv.id;
+    article.boosterSet = cv.boosterSet;
+    article.cardName = cv.cardName;
+    article.edition = cv.edition;
+    article.rarity = cv.rarity;
+    article.cardType = cv.cardType;
+    article.cardCount = cv.cardCount;
+    return article;
+  }
 }
 
