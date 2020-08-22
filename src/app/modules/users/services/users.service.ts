@@ -3,6 +3,7 @@ import {User} from '../entities/user';
 import {SecureHttpClientService} from '../../shared/secure-http-client.service';
 import {Observable} from 'rxjs';
 import {Role} from '../entities/role';
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,43 +14,43 @@ export class UsersService {
   }
 
   getUsers(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/user/get/id/1');
+    return this.secureHttpClientService.get(environment.apiUrl + '/user/get/id/1');
   }
 
   saveUser(user: User): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/user/register', user);
+    return this.secureHttpClientService.post(environment.apiUrl + '/user/register', user);
   }
 
   updateUser(user: User): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/user/update', user);
+    return this.secureHttpClientService.post(environment.apiUrl + '/user/update', user);
   }
 
   getAllUsers(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/user/all');
+    return this.secureHttpClientService.get(environment.apiUrl + '/user/all');
   }
 
   deleteUser(user: User): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/user/delete', user);
+    return this.secureHttpClientService.post(environment.apiUrl + '/user/delete', user);
   }
 
   saveRole(role: Role): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/users/roles/create', role);
+    return this.secureHttpClientService.post(environment.apiUrl + '/users/roles/create', role);
   }
 
   getAllRoles(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/users/roles/list');
+    return this.secureHttpClientService.get(environment.apiUrl + '/users/roles/list');
   }
 
   deleteRole(role: Role): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/users/roles/delete', role);
+    return this.secureHttpClientService.post(environment.apiUrl + '/users/roles/delete', role);
   }
 
   updateThisUser(user: User) {
-    return this.secureHttpClientService.post('http://localhost:8080/user/updatethis', user);
+    return this.secureHttpClientService.post(environment.apiUrl + '/user/updatethis', user);
   }
 
   updateRole(role: Role): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/users/roles/update', role);
+    return this.secureHttpClientService.post(environment.apiUrl + '/users/roles/update', role);
   }
 
 }
