@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://yugioh-back.herokuapp.com/'
+  apiUrl: 'https://yugioh-back.herokuapp.com'
 };
