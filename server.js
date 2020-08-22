@@ -11,9 +11,4 @@ app.get('/*', (req, res) =>
 
 app.listen(process.env.PORT || 8080);
 
-// app.use(express.static("./dist/yugioh"));
-// app.get("/*", function(req, res) {
-//   res.sendFile("index.html", {root: "dist/yugion/"}
-// );
-// });
-// app.listen(process.env.PORT || 8080);
+
