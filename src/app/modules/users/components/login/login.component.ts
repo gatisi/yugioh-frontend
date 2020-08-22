@@ -5,6 +5,7 @@ import {AuthService} from '../../../shared/auth.service';
 import {AuthenticationResult} from '../../entities/AuthenticationResult';
 import {Router} from '@angular/router';
 import {UserInfoService} from '../../../shared/user-info.service';
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.httpClient.post<AuthenticationResult>('http://localhost:8080/login', this.loginForm.getRawValue()).subscribe(
+    this.httpClient.post<AuthenticationResult>(environment.apiUrl + '/login', this.loginForm.getRawValue()).subscribe(
       authenticationResult => {
         this.authService.saveAuthentication(
           authenticationResult
