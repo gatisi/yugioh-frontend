@@ -7,7 +7,7 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
   </mat-form-field>
 
-  <button mat-button routerLink="/articles/list" *ngIf="getUserInfo().role.role!='ROLE_ADMINISTRATOR'">Add Stock Item</button>
+  <button mat-button routerLink="/articles/list" *ngIf="admin">Add Stock Item</button>
 </mat-toolbar>
 
 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
