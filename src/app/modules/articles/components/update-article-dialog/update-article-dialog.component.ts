@@ -15,7 +15,6 @@ export class UpdateArticleDialogComponent implements OnInit {
   rarity = [];
   cardType = [];
 
-
   constructor(public dialogRef: MatDialogRef<UpdateArticleDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public article: Article,
               private articlesService: ArticlesService,
@@ -23,21 +22,12 @@ export class UpdateArticleDialogComponent implements OnInit {
   ) {
   }
 
-
   ngOnInit(): void {
     this.getEnums();
   }
 
-  // saveArticle() {
-  //   this.articlesService.updateArticle(this.article).subscribe(
-  //     res => this.dialogRef.close()
-  //   );
-  // }
-
   saveArticle() {
-    this.articlesService.updateArticle(
-      this.getCountFromV(this.article)
-    ).subscribe(
+    this.articlesService.updateArticle(this.article).subscribe(
       res => this.dialogRef.close()
     );
   }
@@ -56,18 +46,6 @@ export class UpdateArticleDialogComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close();
-  }
-
-  private getCountFromV(cv: Articleview) {
-    const article = new Article();
-    article.id = cv.id;
-    article.boosterSet = cv.boosterSet;
-    article.cardName = cv.cardName;
-    article.edition = cv.edition;
-    article.rarity = cv.rarity;
-    article.cardType = cv.cardType;
-    article.cardCount = cv.cardCount;
-    return article;
   }
 }
 

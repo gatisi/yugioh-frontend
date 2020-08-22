@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <span>List of all Card Storages </span>
+  <span>Storage List </span>
   <span class="fill-space"></span>
 
   <mat-form-field class="form-filtering">
@@ -21,12 +21,11 @@
     </ng-container>
 
 
-    <ng-container matColumnDef="storageName">
+    <ng-container matColumnDef="storageName" >
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Storage name</th>
-      <td *matCellDef="let cardStorage" mat-cell (click)="goToStockItemsList(cardStorage.id)">
+      <td *matCellDef="let cardStorage" mat-cell (click)="goToStockItemsList(cardStorage.id)" class="go-to-stock-items-list">
 
         {{cardStorage.storageName}}
-
       </td>
     </ng-container>
 
