@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {CardStorage} from '../entities/card-storage';
 import {SecureHttpClientService} from '../../shared/secure-http-client.service';
 import {Observable} from 'rxjs';
+import {environment} from "../../../../environments/environment";
 
 
 @Injectable({
@@ -13,23 +14,23 @@ export class CardStorageService {
   }
 
   saveCardStorage(cardStorage: CardStorage): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/cardstorage/create', cardStorage);
+    return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/create', cardStorage);
   }
 
   updateCardStorage(cardStorage: CardStorage): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/cardstorage/update', cardStorage);
+    return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/update', cardStorage);
   }
 
   getAllCardStorages(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/all');
+    return this.secureHttpClientService.get(environment.apiUrl + '/cardstorage/all');
   }
 
   deleteCardStorage(cardStorage: CardStorage): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/cardstorage/delete', cardStorage);
+    return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/delete', cardStorage);
   }
 
   updateThisCardStorage(cardStorage: CardStorage) {
-    return this.secureHttpClientService.post('http://localhost:8080/cardstorage/updatethis', cardStorage);
+    return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/updatethis', cardStorage);
 
   }
 }

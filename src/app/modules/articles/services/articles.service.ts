@@ -3,6 +3,7 @@ import {SecureHttpClientService} from '../../shared/secure-http-client.service';
 import {Observable} from 'rxjs';
 import {Article} from '../entities/article';
 import {Articleview} from "../entities/articleview";
+import {environment} from "../../../../environments/environment";
 
 
 @Injectable({
@@ -15,31 +16,31 @@ export class ArticlesService {
   }
 
   getArticles(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/article/get/id/1');
+    return this.secureHttpClientService.get(environment.apiUrl + '/article/get/id/1');
   }
 
   saveArticle(article: Article): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/article/save', article);
+    return this.secureHttpClientService.post(environment.apiUrl + '/article/save', article);
   }
 
   updateArticle(article: Article): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/article/update', article);
+    return this.secureHttpClientService.post(environment.apiUrl + '/article/update', article);
   }
 
   getAllArticles(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/article/all');
+    return this.secureHttpClientService.get(environment.apiUrl + '/article/all');
   }
 
   deleteArticle(article: Article): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/article/delete', article);
+    return this.secureHttpClientService.post(environment.apiUrl + '/article/delete', article);
   }
 
   getArticleById(id: number): Observable<Article> {
-    return this.secureHttpClientService.get('http://localhost:8080/article/id/' + id);
+    return this.secureHttpClientService.get(environment.apiUrl + '/article/id/' + id);
   }
 
   getAllArticlesView(): Observable<Articleview[]> {
-    return this.secureHttpClientService.get('http://localhost:8080/articleview/all');
+    return this.secureHttpClientService.get(environment.apiUrl + '/articleview/all');
   }
 
 }

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SecureHttpClientService} from './secure-http-client.service';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +11,23 @@ export class EnumsService {
   }
 
   getCardTypes() {
-    return this.secureHttpClientService.get('http://localhost:8080/enum/card_type');
+    return this.secureHttpClientService.get(environment.apiUrl + '/enum/card_type');
   }
 
   getCardConditions() {
-    return this.secureHttpClientService.get('http://localhost:8080/enum/card_condition');
+    return this.secureHttpClientService.get(environment.apiUrl + '/enum/card_condition');
   }
 
   getCardEditions() {
-    return this.secureHttpClientService.get('http://localhost:8080/enum/edition');
+    return this.secureHttpClientService.get(environment.apiUrl + '/enum/edition');
   }
 
   getCardRarities() {
-    return this.secureHttpClientService.get('http://localhost:8080/enum/rarity');
+    return this.secureHttpClientService.get(environment.apiUrl + '/enum/rarity');
   }
 
   getCardStorages() {
-    return this.secureHttpClientService.get('http://localhost:8080/cardstorage/all');
+    return this.secureHttpClientService.get(environment.apiUrl + '/cardstorage/all');
   }
 
 

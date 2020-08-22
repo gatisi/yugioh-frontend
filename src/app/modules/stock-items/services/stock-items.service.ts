@@ -3,6 +3,7 @@ import {SecureHttpClientService} from "../../shared/secure-http-client.service";
 import {StockItem} from "../entities/stock-item";
 import {Observable} from "rxjs";
 import {Article} from '../../articles/entities/article';
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -14,37 +15,38 @@ export class StockItemsService {
 
   saveStockItem(stockItem: StockItem, article: Article): Observable<any> {
     stockItem.article = article;
-    return this.secureHttpClientService.post('http://localhost:8080/stockitem/create', stockItem);
+    return this.secureHttpClientService.post(environment.apiUrl + '/stockitem/create', stockItem);
   }
 
   updateStockItem(stockItem: StockItem): Observable<any> {
-    return this.secureHttpClientService.post ('http://localhost:8080/stockitem/update', stockItem);
+    return this.secureHttpClientService.post(environment.apiUrl + '/stockitem/update', stockItem);
 
   }
 
   getAllStockItems(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/all');
+    return this.secureHttpClientService.get(environment.apiUrl+ '/stockitem/get/all');
   }
+
   getAllStockItemsV(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080/stockitemview/all');
+    return this.secureHttpClientService.get(environment.apiUrl + '/stockitemview/all');
   }
 
   getStockItemById(id) {
-    return this.secureHttpClientService.get('http://localhost:8080/stockitem/get/id/1');
+    return this.secureHttpClientService.get(environment.apiUrl + '/stockitem/get/id/1');
   }
 
   deleteStockItem(stockItem: StockItem): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/stockitem/delete', stockItem);
+    return this.secureHttpClientService.post(environment.apiUrl + '/stockitem/delete', stockItem);
 
   }
 
 
   saveStockItemAsSold(stockItem: StockItem): Observable<any> {
-    return this.secureHttpClientService.post('http://localhost:8080/stockitem/sold', stockItem);
+    return this.secureHttpClientService.post(environment.apiUrl + '/stockitem/sold', stockItem);
 
   }
 
   getStockItemsByStorageId(): Observable<any> {
-    return this.secureHttpClientService.get('http://localhost:8080//cardstorage/get/stockitems/:storageId');
+    return this.secureHttpClientService.get(environment.apiUrl + '/cardstorage/get/stockitems/:storageId');
   }
 }
