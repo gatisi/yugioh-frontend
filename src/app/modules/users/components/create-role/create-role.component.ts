@@ -10,9 +10,12 @@ import {AuthService} from '../../../shared/auth.service';
   styleUrls: ['./create-role.component.css']
 })
 export class CreateRoleComponent implements OnInit {
+  private formSubmitted;
   roleCreationForm = new FormGroup({
     role: new FormControl(''),
+
   });
+  buttonDisabled: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -22,9 +25,11 @@ export class CreateRoleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   saveRole() {
+    this.buttonDisabled = true;
     this.usersService.saveRole(this.roleCreationForm.getRawValue()).subscribe(
       res => {
         if (this.authenticationService.isLoggedIn()) {
