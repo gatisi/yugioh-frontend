@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
-import {ArticlesService} from "../../services/articles.service";
-import {AuthService} from "../../../shared/auth.service";
-import {EnumsService} from "../../../shared/enums.service";
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ArticlesService} from '../../services/articles.service';
+import {AuthService} from '../../../shared/auth.service';
+import {EnumsService} from '../../../shared/enums.service';
 
 
 @Component({
@@ -12,6 +12,13 @@ import {EnumsService} from "../../../shared/enums.service";
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
+
+  constructor(
+    private articlesService: ArticlesService,
+    private router: Router,
+    private enumsService: EnumsService,
+  ) {
+  }
   edition = [];
   rarity = [];
   cardType = [];
@@ -23,13 +30,7 @@ export class CreateArticleComponent implements OnInit {
     rarity: new FormControl(''),
     cardType: new FormControl(''),
   });
-
-  constructor(
-    private articlesService: ArticlesService,
-    private router: Router,
-    private enumsService: EnumsService,
-  ) {
-  }
+ /* reviewBtn = true;*/
 
   ngOnInit(): void {
     this.getEnums();
