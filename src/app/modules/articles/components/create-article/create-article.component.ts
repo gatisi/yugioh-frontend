@@ -30,10 +30,11 @@ export class CreateArticleComponent implements OnInit {
     rarity: new FormControl(''),
     cardType: new FormControl(''),
   });
- /* reviewBtn = true;*/
+
 
   ngOnInit(): void {
     this.getEnums();
+
   }
 
   getEnums() {
@@ -49,6 +50,7 @@ export class CreateArticleComponent implements OnInit {
   }
 
   saveArticle() {
+
     console.log(this.articleForm.getRawValue());
     this.articlesService.saveArticle(this.articleForm.getRawValue()).subscribe();
     this.router.navigateByUrl('articles/list');
