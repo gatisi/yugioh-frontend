@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://157.230.22.167'
+  apiUrl: 'https://yugioh-back.herokuapp.com',
+  frontUrl: 'https://yugioh-front.herokuapp.com',
 };

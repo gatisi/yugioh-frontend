@@ -24,3 +24,6 @@ span {
 button{
   alignment: right;
 }
+.go-to-stock-items-list {
+  cursor:pointer;
+}

@@ -18,37 +18,37 @@
     ID Column
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
-      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="cardName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
-      <td mat-cell *matCellDef="let row"> {{row.cardName}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.cardName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="boosterSet">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Booster Set</th>
-      <td mat-cell *matCellDef="let row"> {{row.boosterSet}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.boosterSet}} </td>
     </ng-container>
 
     <ng-container matColumnDef="rarity">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Rarity</th>
-      <td mat-cell *matCellDef="let row"> {{row.rarity}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.rarity}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edition">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Edition</th>
-      <td mat-cell *matCellDef="let row"> {{row.edition}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.edition}} </td>
     </ng-container>
 
     <ng-container matColumnDef="cardType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Type</th>
-      <td mat-cell *matCellDef="let row"> {{row.cardType}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.cardType}} </td>
     </ng-container>
 
     <ng-container matColumnDef="cardCount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Count</th>
-      <td mat-cell *matCellDef="let row"> {{row.cardCount}} </td>
+      <td mat-cell *matCellDef="let row" (click)="goToStockItemsList(row.id)" class="go-to-stock-items-list"> {{row.cardCount}} </td>
     </ng-container>
 
     <ng-container matColumnDef="update">
