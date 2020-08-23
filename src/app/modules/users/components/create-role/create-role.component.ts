@@ -15,7 +15,7 @@ export class CreateRoleComponent implements OnInit {
     role: new FormControl(''),
 
   });
-  private buttonDisabled= false;
+  buttonDisabled: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -25,6 +25,7 @@ export class CreateRoleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   saveRole() {
