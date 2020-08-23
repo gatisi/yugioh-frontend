@@ -8,7 +8,7 @@
     </mat-form-field>
     <br>
 
-    <button mat-button (click)="saveRole()">Save</button>
+    <button mat-button (click)="saveRole()" [disabled]="!buttonDisabled">Save</button>
   </div>
 
 </form>
