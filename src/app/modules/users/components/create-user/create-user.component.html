@@ -22,7 +22,7 @@
       <input type="password" formControlName="password" matInput>
     </mat-form-field>
     <br>
-    <button mat-button (click)="saveUser()">Register</button>
+    <button mat-button (click)="saveUser()" [disabled]="buttonDisabled">Register</button>
   </div>
 
 </form>

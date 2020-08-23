@@ -21,11 +21,13 @@ export class UpdateRoleDialogComponent implements OnInit {
   roleCreationForm = new FormGroup({
     role: new FormControl(''),
   });
+  buttonDisabled: boolean = false;
 
   ngOnInit(): void {
   }
 
   saveRole() {
+    this.buttonDisabled = true;
     this.usersService.updateRole(this.role).subscribe(
       res => this.dialogRef.close()
     );

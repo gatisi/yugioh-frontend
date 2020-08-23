@@ -69,8 +69,8 @@
       <input type="text" formControlName="comments" matInput>
     </mat-form-field>
     <br>
+  <button mat-button (click)="saveStockItem()" [disabled]="buttonDisabled">Save</button>
 
-    <button mat-button (click)="saveStockItem()">Save</button>
 
   </div>
 

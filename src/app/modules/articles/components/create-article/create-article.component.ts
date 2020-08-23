@@ -31,6 +31,7 @@ export class CreateArticleComponent implements OnInit {
     cardType: new FormControl(''),
   });
 
+  buttonDisabled: boolean = false;
 
   ngOnInit(): void {
     this.getEnums();
@@ -50,7 +51,7 @@ export class CreateArticleComponent implements OnInit {
   }
 
   saveArticle() {
-
+    this.buttonDisabled = true;
     console.log(this.articleForm.getRawValue());
     this.articlesService.saveArticle(this.articleForm.getRawValue()).subscribe();
     this.router.navigateByUrl('articles/list');

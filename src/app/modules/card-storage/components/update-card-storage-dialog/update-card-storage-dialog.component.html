@@ -5,7 +5,6 @@
     <input type="text" [(ngModel)]="cardStorage.storageName" matInput>
   </mat-form-field>
   <br>
-
-  <button mat-button [mat-dialog-close]="cardStorage" (click)="saveCardStorage()">Update</button>
+  <button mat-button (click)="saveCardStorage()" [disabled]="buttonDisabled">Update</button>
   <button mat-button (click)="close()">Cancel</button>
 </div>

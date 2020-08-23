@@ -30,6 +30,8 @@ export class CreateStockItemComponent implements OnInit {
     cardCondition: new FormControl(''),
     cardStorage: new FormControl(''),
   });
+  buttonDisabled: boolean = false;
+
   filteredOptions: Observable<string[]>;
 
   constructor(
@@ -71,6 +73,7 @@ export class CreateStockItemComponent implements OnInit {
   }
 
   saveStockItem() {
+    this.buttonDisabled = true;
     this.stockItemsService.saveStockItem(this.stockItemCreationForm.getRawValue(), this.article).subscribe(
       res => {
         if (this.authenticationService.isLoggedIn()) {

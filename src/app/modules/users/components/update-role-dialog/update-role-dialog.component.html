@@ -5,7 +5,7 @@
     <input type="text" [(ngModel)]="role.role" matInput>
   </mat-form-field>
   <br>
-  <button mat-button [mat-dialog-close]="role" (click)="saveRole()">Update</button>
+  <button mat-button (click)="saveRole()" [disabled]="buttonDisabled">Update</button>
   <button mat-button (click)="close()">Cancel</button>
 </div>
 

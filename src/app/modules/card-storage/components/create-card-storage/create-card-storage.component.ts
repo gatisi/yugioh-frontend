@@ -21,10 +21,13 @@ export class CreateCardStorageComponent implements OnInit {
   ) {
   }
 
+  buttonDisabled: boolean = false;
+
   ngOnInit(): void {
   }
 
   saveCardStorage() {
+    this.buttonDisabled = true;
     this.cardStorageService.saveCardStorage(this.storageCreationForm.getRawValue()).subscribe(
       res => {
         if (this.authenticationService.isLoggedIn()) {

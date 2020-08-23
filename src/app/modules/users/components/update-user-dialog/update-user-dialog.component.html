@@ -15,7 +15,7 @@
       <input type="text" [(ngModel)]="user.email" matInput>
     </mat-form-field>
     <br>
-    <button mat-button [mat-dialog-close]="user" (click)="saveUser()">Update</button>
+  <button mat-button (click)="saveUser()" [disabled]="buttonDisabled">Update</button>
     <button mat-button (click)="close()">Cancel</button>
   </div>
 

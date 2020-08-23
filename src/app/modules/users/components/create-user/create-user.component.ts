@@ -16,6 +16,7 @@ export class CreateUserComponent implements OnInit {
     surname: new FormControl(''),
     password: new FormControl(''),
   });
+  buttonDisabled: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -30,6 +31,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   saveUser() {
+    this.buttonDisabled = true;
     this.usersService.saveUser(this.registrationForm.getRawValue()).subscribe(
       res => {
         if (this.authenticationService.isLoggedIn()) {
