@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+
     this.httpClient.post<AuthenticationResult>(environment.apiUrl + '/login', this.loginForm.getRawValue()).subscribe(
       authenticationResult => {
         this.authService.saveAuthentication(

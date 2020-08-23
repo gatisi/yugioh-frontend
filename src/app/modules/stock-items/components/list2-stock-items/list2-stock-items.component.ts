@@ -19,7 +19,7 @@ import {ConfirmationDialogComponent} from '../../../shared/components/confirmati
   styleUrls: ['./list2-stock-items.component.css']
 })
 export class List2StockItemsComponent implements OnInit {
-  public stockItems = [];
+  public admin = true;
   public stockItemsV = [];
   public cardStorages = [];
   displayedColumnsStockItems: string[] = ['id', 'cardCondition', 'cardValue', 'cardValueWhenSold', 'inShop', 'comments', 'boosterSet', 'cardName', 'edition', 'rarity', 'cardType', 'storage', 'update', 'addToSold', 'delete'];
@@ -39,8 +39,9 @@ export class List2StockItemsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.getUserInfo().role.role!='ROLE_ADMINISTRATOR'){
+    if (this.getUserInfo().role.role != 'ROLE_ADMINISTRATOR') {
       this.displayedColumnsStockItems = ['id', 'cardCondition', 'cardValue', 'cardValueWhenSold', 'inShop', 'comments', 'boosterSet', 'cardName', 'edition', 'rarity', 'cardType', 'storage'];
+      this.admin = false;
     }
     this.getStockItems();
     this.getCardStorage();
@@ -69,11 +70,11 @@ export class List2StockItemsComponent implements OnInit {
     this.stockItemsService.getAllStockItemsV().subscribe(
       res => {
         this.stockItemsV = res;
-            this.route.params.subscribe(params => {
-              if (params.field && params.id) {
-                this.stockItemsV = this.filterByFields(params.id, this.stockItemsV, params.field);
-              }
-            });
+        this.route.params.subscribe(params => {
+          if (params.field && params.id) {
+            this.stockItemsV = this.filterByFields(params.id, this.stockItemsV, params.field);
+          }
+        });
         this.dataSource = new MatTableDataSource(this.stockItemsV);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -83,9 +84,9 @@ export class List2StockItemsComponent implements OnInit {
 
   deleteStockItem(stockItem: StockItem): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
-    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete this?";
+    dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete this?';
     dialogRef.afterClosed().subscribe(result => {
-        if(result){
+        if (result) {
           this.stockItemsService.deleteStockItem(stockItem).subscribe(
             res => this.ngOnInit()
           );
@@ -105,13 +106,13 @@ export class List2StockItemsComponent implements OnInit {
 
   filterByFields(id, stockItems: StockItemV[], filterBy: String) {
     switch (filterBy) {
-      case "storage":
+      case 'storage':
         return stockItems.filter(
           stockItem => stockItem.storageId == id
         );
         break;
 
-      case "article":
+      case 'article':
         console.log('ir');
         return stockItems.filter(
           stockItem => stockItem.articleId == id
@@ -129,8 +130,9 @@ export class List2StockItemsComponent implements OnInit {
     }
   }
 
-  getUserInfo(){
+  getUserInfo() {
     return JSON.parse(sessionStorage.getItem('yugioh.user.info'));
   }
+
 
 }

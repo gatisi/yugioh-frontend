@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://cryptic-island-35886.herokuapp.com'
+  apiUrl: 'https://yugioh-back.herokuapp.com',
+  frontUrl: 'https://yugioh-front.herokuapp.com',
 };

@@ -31,7 +31,7 @@ export class ResetPasswordComponent implements OnInit {
   reset() {
     const request = new PasswordResetRequest();
     request.email = this.form.getRawValue().email;
-    request.host = environment.apiUrl;
+    request.host = environment.frontUrl;
     this.passwordResetService.requestReset(request);
     this.resetEmailSent = true;
   }
