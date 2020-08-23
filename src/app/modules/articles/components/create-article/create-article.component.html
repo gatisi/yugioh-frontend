@@ -38,7 +38,8 @@
     </mat-select>
   </mat-form-field>
   <br>
-  <button mat-button (click)="saveArticle()">Save</button>
+  <button mat-button (click)="saveArticle()" [disabled]="buttonDisabled">Save</button>
+
 </div>
 
 </form>

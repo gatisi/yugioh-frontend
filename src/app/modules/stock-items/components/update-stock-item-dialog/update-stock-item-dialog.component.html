@@ -66,7 +66,6 @@
 
 
   </div>
-
-  <button (click)="saveStockItem()" [mat-dialog-close]="stockItem" mat-button>Update</button>
+  <button mat-button (click)="saveStockItem()" [disabled]="buttonDisabled">Update</button>
   <button (click)="close()" mat-button>Cancel</button>
 </div>

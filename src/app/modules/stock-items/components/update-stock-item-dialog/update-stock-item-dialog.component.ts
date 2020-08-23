@@ -27,12 +27,14 @@ export class UpdateStockItemDialogComponent implements OnInit {
               private route: ActivatedRoute,
   ) {
   }
+  buttonDisabled: boolean = false;
 
   ngOnInit(): void {
     this.getEnums();
   }
 
   saveStockItem() {
+    this.buttonDisabled = true;
     this.stockItemsService.updateStockItem(
       this.getStockItemFromV(this.stockItem)
     ).subscribe(

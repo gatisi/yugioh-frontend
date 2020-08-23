@@ -23,11 +23,13 @@ export class UpdateUserDialogComponent implements OnInit {
     surname: new FormControl(''),
     password: new FormControl(''),
   });
+  buttonDisabled: boolean = false;
 
   ngOnInit(): void {
   }
 
   saveUser() {
+    this.buttonDisabled = true;
     this.usersService.updateUser(this.user).subscribe(
       res => this.dialogRef.close()
     );

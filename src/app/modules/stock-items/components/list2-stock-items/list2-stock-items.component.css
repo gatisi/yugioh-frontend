@@ -9,3 +9,22 @@ table {
 span {
   margin-right: 10px;
 }
+table{
+  width: 100%;
+}
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+span {
+  margin-right: 10px;
+}
+
+mat-toolbar.button{
+  alignment: right;
+}

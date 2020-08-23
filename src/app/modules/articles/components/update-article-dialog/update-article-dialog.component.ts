@@ -21,12 +21,15 @@ export class UpdateArticleDialogComponent implements OnInit {
               private enumsService: EnumsService
   ) {
   }
+  buttonDisabled: boolean = false;
+
 
   ngOnInit(): void {
     this.getEnums();
   }
 
   saveArticle() {
+    this.buttonDisabled = true;
     this.articlesService.updateArticle(this.article).subscribe(
       res => this.dialogRef.close()
     );

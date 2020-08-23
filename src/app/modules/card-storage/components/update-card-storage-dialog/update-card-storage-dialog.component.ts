@@ -14,6 +14,7 @@ export class UpdateCardStorageDialogComponent implements OnInit {
   updateCardStorageForm = new FormGroup({
     storageName: new FormControl(''),
   });
+  buttonDisabled: boolean = false;
 
   constructor(
     public dialogRef: MatDialogRef<UpdateCardStorageDialogComponent>,
@@ -22,11 +23,11 @@ export class UpdateCardStorageDialogComponent implements OnInit {
   ) {
   }
 
-
   ngOnInit(): void {
   }
 
   saveCardStorage() {
+    this.buttonDisabled = true;
     this.cardStorageService.updateCardStorage(this.cardStorage).subscribe(
       res => this.dialogRef.close()
     );

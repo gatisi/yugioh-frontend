@@ -38,7 +38,7 @@
     </mat-select>
   </mat-form-field>
   <br>
-  <button mat-button [mat-dialog-close]="article" (click)="saveArticle()">Update</button>
+  <button mat-button (click)="saveArticle()" [disabled]="buttonDisabled">Update</button>
   <button mat-button (click)="close()">Cancel</button>
 </div>
 
