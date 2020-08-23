@@ -1,0 +1,7 @@
+.loading-spinner {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: 100px auto;
+}

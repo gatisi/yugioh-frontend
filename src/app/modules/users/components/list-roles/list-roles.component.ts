@@ -9,6 +9,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {UserData} from "../../../articles/components/material-example/material-example.component";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
+import {isBoolean} from "util";
 
 // @ts-ignore
 @Component({
@@ -22,6 +23,7 @@ export class ListRolesComponent implements OnInit {
   dataSource: MatTableDataSource<Role>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  dataIsLoaded: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -46,6 +48,7 @@ export class ListRolesComponent implements OnInit {
   getRoles() {
     this.usersService.getAllRoles().subscribe(
       res => {
+        this.dataIsLoaded = true;
         this.roles = res;
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;

@@ -12,7 +12,7 @@
 
 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" *ngIf="dataIsLoaded">
   <table mat-table [dataSource]="dataSource"  matSort>
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef  mat-sort-header> ID</th>
@@ -48,3 +48,6 @@
   </table>
 
 </div>
+
+<app-loading-spinner *ngIf="!dataIsLoaded">
+</app-loading-spinner>

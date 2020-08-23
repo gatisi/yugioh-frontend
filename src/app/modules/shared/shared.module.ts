@@ -25,10 +25,13 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
+import {LoadingSpinnerComponent} from './components/loading-spinner/loading-spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
-  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent, FooterComponent, ConfirmationDialogComponent],
+  declarations: [WelcomeComponent, LogoutComponent, HeaderComponent, FooterComponent, ConfirmationDialogComponent, LoadingSpinnerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -49,6 +52,7 @@ import {ConfirmationDialogComponent} from './components/confirmation-dialog/conf
     RouterModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
 
 
   ],
@@ -75,6 +79,8 @@ import {ConfirmationDialogComponent} from './components/confirmation-dialog/conf
     MatPaginatorModule,
     MatSortModule,
     ConfirmationDialogComponent,
+    MatProgressSpinnerModule,
+    LoadingSpinnerComponent,
   ],
   providers: [
     AuthService,
