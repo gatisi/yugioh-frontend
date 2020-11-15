@@ -27,7 +27,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 import {LoadingSpinnerComponent} from './components/loading-spinner/loading-spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -53,8 +53,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-
-
+    MatSnackBarModule,
   ],
   exports: [
     FormsModule,
@@ -81,6 +80,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ConfirmationDialogComponent,
     MatProgressSpinnerModule,
     LoadingSpinnerComponent,
+    MatSnackBarModule,
   ],
   providers: [
     AuthService,

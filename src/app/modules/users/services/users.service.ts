@@ -13,9 +13,9 @@ export class UsersService {
   constructor(private secureHttpClientService: SecureHttpClientService) {
   }
 
-  getUsers(): Observable<any> {
-    return this.secureHttpClientService.get(environment.apiUrl + '/user/get/id/1');
-  }
+  // getUsers(): Observable<any> {
+  //   return this.secureHttpClientService.get(environment.apiUrl + '/user/get/id/1');
+  // }
 
   saveUser(user: User): Observable<any> {
     return this.secureHttpClientService.post(environment.apiUrl + '/user/register', user);
@@ -43,10 +43,6 @@ export class UsersService {
 
   deleteRole(role: Role): Observable<any> {
     return this.secureHttpClientService.post(environment.apiUrl + '/users/roles/delete', role);
-  }
-
-  updateThisUser(user: User) {
-    return this.secureHttpClientService.post(environment.apiUrl + '/user/updatethis', user);
   }
 
   updateRole(role: Role): Observable<any> {

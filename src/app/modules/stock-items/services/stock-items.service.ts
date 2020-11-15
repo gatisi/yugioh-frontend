@@ -31,9 +31,6 @@ export class StockItemsService {
     return this.secureHttpClientService.get(environment.apiUrl + '/stockitemview/all');
   }
 
-  getStockItemById(id) {
-    return this.secureHttpClientService.get(environment.apiUrl + '/stockitem/get/id/1');
-  }
 
   deleteStockItem(stockItem: StockItem): Observable<any> {
     return this.secureHttpClientService.post(environment.apiUrl + '/stockitem/delete', stockItem);

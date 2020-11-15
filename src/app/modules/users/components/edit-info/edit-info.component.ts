@@ -26,7 +26,7 @@ export class EditInfoComponent implements OnInit {
   }
 
   saveUser() {
-    this.usersService.updateThisUser(this.user).subscribe(
+    this.usersService.updateUser(this.user).subscribe(
       res => this.ngOnInit()
     );
   }

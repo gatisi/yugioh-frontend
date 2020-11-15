@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://127.0.0.1:8080',
-  frontUrl: 'http://127.0.0.1:4200',
+  apiUrl: 'http://209.250.243.76:8080',
+  frontUrl: 'http://gatisinnus.id.lv',
 };

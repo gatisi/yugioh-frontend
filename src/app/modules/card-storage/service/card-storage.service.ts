@@ -29,10 +29,10 @@ export class CardStorageService {
     return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/delete', cardStorage);
   }
 
-  updateThisCardStorage(cardStorage: CardStorage) {
-    return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/updatethis', cardStorage);
-
-  }
+  // updateThisCardStorage(cardStorage: CardStorage) {
+  //   return this.secureHttpClientService.post(environment.apiUrl + '/cardstorage/updatethis', cardStorage);
+  //
+  // }
 }
 
 

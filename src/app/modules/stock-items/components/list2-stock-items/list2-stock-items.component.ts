@@ -83,6 +83,7 @@ export class List2StockItemsComponent implements OnInit {
   }
 
   deleteStockItem(stockItem: StockItem): void {
+    console.log(stockItem);
     const dialogRef = this.dialog.open(ConfirmationDialogComponent);
     dialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete this?';
     dialogRef.afterClosed().subscribe(result => {

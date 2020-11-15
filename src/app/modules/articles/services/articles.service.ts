@@ -15,9 +15,9 @@ export class ArticlesService {
   constructor(private secureHttpClientService: SecureHttpClientService) {
   }
 
-  getArticles(): Observable<any> {
-    return this.secureHttpClientService.get(environment.apiUrl + '/article/get/id/1');
-  }
+  // getArticles(): Observable<any> {
+  //   return this.secureHttpClientService.get(environment.apiUrl + '/article/get/id/1');
+  // }
 
   saveArticle(article: Article): Observable<any> {
     return this.secureHttpClientService.post(environment.apiUrl + '/article/save', article);

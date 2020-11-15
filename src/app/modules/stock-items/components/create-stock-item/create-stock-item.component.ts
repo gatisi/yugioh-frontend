@@ -57,7 +57,6 @@ export class CreateStockItemComponent implements OnInit {
     this.enumsService.getCardStorages().subscribe(
       res => {
         this.cardStorageArr = res;
-        console.log(res);
       }
     );
   }

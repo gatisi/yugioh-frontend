@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {StockItem} from "../../entities/stock-item";
 import {StockItemsService} from "../../services/stock-items.service";
-import {conditionallyCreateMapObjectLiteral} from "@angular/compiler/src/render3/view/util";
 
 @Component({
   selector: 'app-add-stock-item-to-sold-storage-dialog',
@@ -19,15 +18,7 @@ export class AddStockItemToSoldStorageDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.stockItem);
   }
-
-  //
-  // saveStockItemAsSold() {
-  //   this.stockItemsService.saveStockItemAsSold(this.stockItem).subscribe(
-  //     res => this.dialogRef.close()
-  //   );
-  // }
 
   saveStockItem() {
     this.stockItemsService.updateStockItem(this.stockItem).subscribe(

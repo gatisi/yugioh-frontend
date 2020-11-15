@@ -7,6 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 import {StockItemV} from '../../entities/stock-item-v';
 import {Article} from '../../../articles/entities/article';
 import {CardStorage} from '../../../card-storage/entities/card-storage';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-update-stock-item-dialog',
@@ -18,10 +19,12 @@ export class UpdateStockItemDialogComponent implements OnInit {
   rarity = [];
   cardType = [];
   cardCondition = [];
-  // stockItemId: number;
+  stockItemCreationForm: FormGroup;
+  stockItem: StockItem;
+  cardStorageArr: [];
 
   constructor(public dialogRef: MatDialogRef<UpdateStockItemDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public stockItem: StockItemV,
+              @Inject(MAT_DIALOG_DATA) public stockItemV: StockItemV,
               private stockItemsService: StockItemsService,
               private enumsService: EnumsService,
               private route: ActivatedRoute,
@@ -31,25 +34,42 @@ export class UpdateStockItemDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEnums();
+    this.stockItem = this.getStockItemFromV(this.stockItemV);
+    this.stockItemCreationForm = new FormGroup({
+      cardValue: new FormControl(this.stockItem.cardValue),
+      cardValueWhenSold: new FormControl(this.stockItem.cardValueWhenSold),
+      inShop: new FormControl(this.stockItem.inShop),
+      comments: new FormControl(this.stockItem.comments),
+      cardCondition: new FormControl(this.stockItem.cardCondition),
+      cardStorage: new FormControl(this.stockItem.cardStorage),
+    });
   }
+
+  // saveStockItem() {
+  //   this.buttonDisabled = true;
+  //   this.stockItemsService.updateStockItem(
+  //     this.getStockItemFromV(this.stockItemV)
+  //   ).subscribe(
+  //     res => this.dialogRef.close()
+  //   );
+  // }
 
   saveStockItem() {
     this.buttonDisabled = true;
-    this.stockItemsService.updateStockItem(
-      this.getStockItemFromV(this.stockItem)
-    ).subscribe(
-      res => this.dialogRef.close()
+    this.stockItemsService.updateStockItem(this.stockItemCreationForm.getRawValue()).subscribe(
+      res => {
+      }
     );
   }
 
   getStockItemFromV(sv: StockItemV){
-    const stockItem = new StockItem();
-    stockItem.cardCondition = sv.cardCondition;
-    stockItem.cardValue = sv.cardValue;
-    stockItem.cardValueWhenSold = sv.cardValueWhenSold;
-    stockItem.id = sv.id;
-    stockItem.inShop = sv.inShop;
-    stockItem.comments = sv.comments;
+    const stockItemV = new StockItem();
+    stockItemV.cardCondition = sv.cardCondition;
+    stockItemV.cardValue = sv.cardValue;
+    stockItemV.cardValueWhenSold = sv.cardValueWhenSold;
+    stockItemV.id = sv.id;
+    stockItemV.inShop = sv.inShop;
+    stockItemV.comments = sv.comments;
     const article = new Article();
     article.id = sv.articleId;
     article.rarity = sv.rarity;
@@ -60,37 +80,16 @@ export class UpdateStockItemDialogComponent implements OnInit {
     const storage = new CardStorage();
     storage.id = sv.storageId;
     storage.storageName = sv.storageName;
-    stockItem.cardStorage = storage;
-    stockItem.article = article;
-    return stockItem;
-  }
-
-  // getStockItemId() {
-  //   this.route.params.subscribe(params => {
-  //     this.stockItemId = params.stockItemId;
-  //     this.getStockItem(this.stockItemId);
-  //
-  //   });
-  // }
-
-
-  getStockItem(stockItemId){
-    this.stockItemsService.getStockItemById(stockItemId).subscribe(
-      res => {this.stockItem = res;
-    console.log(res);
-      }
-    );
+    stockItemV.cardStorage = storage;
+    stockItemV.article = article;
+    return stockItemV;
   }
 
   getEnums() {
-    this.enumsService.getCardTypes().subscribe(
-      res => this.cardType = res
-    );
-    this.enumsService.getCardRarities().subscribe(
-      res => this.rarity = res
-    );
-    this.enumsService.getCardEditions().subscribe(
-      res => this.edition = res
+    this.enumsService.getCardStorages().subscribe(
+      res => {
+        this.cardStorageArr = res;
+      }
     );
     this.enumsService.getCardConditions().subscribe(
       res => this.cardCondition = res
@@ -99,5 +98,9 @@ export class UpdateStockItemDialogComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close();
+  }
+
+  public objectComparisonFunction( option, value ): boolean {
+    return option.id === value.id;
   }
 }
